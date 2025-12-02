@@ -1,0 +1,96 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+hr {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+
+}
+
+.demo-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resize-note {
+    margin-top: 20px;
+    font-style: italic;
+    color: #555;
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    border: 2px dashed #007bff;
+    padding: 10px;
+    min-height: 100px;
+    margin-top: 15px;
+}
+
+/* demo 1: navigation bar */
+
+.nav-bar {
+    /* sets the main axis direction */
+    flex-direction: row;
+
+    /* distributes space between the items along the main axis */
+    justify-content: space-evenly;
+
+    /* centers items vertically aling the cross axis */
+    align-items: center;
+    background-color: #e9f5ff;
+}
+
+.nav-bar a {
+    text-decoration: none ;
+    color: #007bff;
+    padding: 8px 15px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s;
+}
+
+/* demo 2: card layout */
+
+.card-wrapper {
+    /* required: allows items to break into a new line */
+    flex-wrap: wrap;
+
+    /* align items to the top of the container wjen wrapped */
+    align-items: flex-start;
+}
+
+.flex-item {
+    background-color: #28a745;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 5px;
+    min-width: 150px;
+}
+
+/* flex item properties: controlling growth */
+
+.card-1 {
+    /* grows to consume available space (1 part) */
+    flex-grow: 2;
+    background-color: #ffc107;
+}
