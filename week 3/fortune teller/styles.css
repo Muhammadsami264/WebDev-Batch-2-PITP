@@ -1,0 +1,58 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    margin: 0;
+    background-image: url(data:image/jpeg;base64,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);
+    background-position: center;
+    background-size: cover;
+}
+.container {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-HPotzCbTme-sfpAE2ex2e7HDDcYS21BWAQ&s);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #6885a3;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 100%;
+    border-style:ridge;
+}
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor:pointer;
+    transition: all 0.2s;
+    box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+}
+button:active {
+    transform: translateY(0);
+}
+#answer {
+    
+    margin-top: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    min-height: 60px;
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
