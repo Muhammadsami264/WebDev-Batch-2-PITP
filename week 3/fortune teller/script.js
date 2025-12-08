@@ -28,7 +28,7 @@ const ans = document.querySelector("#answer");
 
 // function showans() {
 //     const index = Math.floor(Math.random() * options.length);
-//     const randomans = option[index];
+//     const randomans = options[index];
 
 //     ans.textContent = randomans;
 // }
@@ -46,8 +46,7 @@ const ans = document.querySelector("#answer");
 
 function showans() {
     
-    ans.textContent = option[Math.floor(Math.random() * options.length)];
+    ans.textContent = options[Math.floor(Math.random() * options.length)];
 }
-
 
 getansbtn.addEventListener("click" , showans);
