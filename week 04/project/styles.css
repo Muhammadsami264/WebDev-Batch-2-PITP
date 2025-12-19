@@ -1,28 +1,41 @@
-
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 .top-bar{
     background-color: brown  ;
     display: flex;
+    justify-content: space-around;
     padding: 10px;
+    align-items: center;
     justify-content: space-between;
 }
+
 .top-L button {
     text-decoration : none;
     border-style: none;
     background-color: transparent;
     text-transform: uppercase;
+    justify-content: space-around;
+   
 }
+
 .top-L button a {
     text-decoration: none;
     color: white;
     font-weight: 500;
     padding-right: 10px;
 }
+
+.top-R img {
+    margin-left: 10px;
+    width: 30px;
+    align-items: center;
+    background-color: brown;
+}
+
 #img {
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(./images/crs_home.webp);
     width: 100%;
@@ -31,10 +44,53 @@
     background-position: center;
     background-size:cover;
 }
+
 .mainnav{
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    background-color:aliceblue;
+    align-items: center;
+    
+}
+
+
+.graduation{
+    width: 50px;   
+    margin: 10px;
+}
+
+.search {
+    width: 30px;
+    margin-left: 30px;    
+    margin-bottom: 4px;
+    border: none;
+    background-color: aliceblue;
+}
+
+.nav1 {
+    padding-left:16px ;
+    padding-top: 5px;
+    font-family:cursive ;
+    font-weight: 500;
+}
+
+.nav2 a{
+
+    text-decoration: none;
+    color: black;
+    margin: 2px;
+    padding-top: 60px;
+    padding-left:9px ;
+    font-size: 25px;
+    
+}
+.nav2  :hover{
+    color: brown;
+}
+
+.logo-name{
+    display: flex;
 }
 
 .center-text{
@@ -55,3 +111,219 @@
     margin-top: 30px;
 }
 
+
+.up :hover {
+    transform: translateY(3px);
+    transition: all(0.4s);
+    color: brown;
+}
+
+.school-intro{
+    display: flex;
+}
+
+.intro{
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    word-spacing:normal;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.introduction{
+    margin-top: 40px;
+}
+
+.mehran {
+    width: 15%;
+    margin-left: 80px ;
+    margin-right: 40px;
+    align-items: center;
+    background: fixed;
+}
+
+
+.intro {
+    
+    margin-left:0px 30px 20px 30px  ;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+
+
+}
+
+.dept{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: black;
+    border-radius: 3%;
+    color: white;
+    background-color: brown;
+    margin-bottom:40px ;
+    padding: 10px 10px 10px 10px ;
+}
+
+
+ul{
+    margin-left: 20px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+li{
+    margin: 10px;
+}
+
+.courses{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    background-color: aliceblue;   
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admission{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(109, 34, 34);
+    color: white;
+}
+
+form {
+    margin-bottom: 90px;
+    border: ridge;
+    padding: 20px;
+    border-radius: 2%;
+    border-style: double;
+    color: white;
+
+}
+.container2 Form label {
+    color: white;
+}
+label{
+    padding: 10px;
+    padding-right: 15px;
+    margin-right: 10px;
+}
+input{
+    padding: 5px 10px 5px 10px;
+}
+
+/* FOOTER */
+
+.end {
+    display: flex;
+    align-items: center;    
+    justify-content: space-around;
+    background-color: rgb(182, 179, 179);
+    margin-top: 30px;
+    padding: 30px;
+}
+.footer{
+     background-color: rgb(182, 179, 179);
+}
+
+footer{
+    
+}
+
+.endlogo {
+    
+    font-family: cursive;
+    font-weight: 500;
+    font-size: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.contact{
+    font-size: large;
+}
+
+form{
+    border: none;
+}
+label{
+    text-align: left;
+    margin-left: -8px;
+    font-size: 20px;
+    color: brown;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+input{
+    border-radius: 10px;
+    padding: 10px;
+    padding-right: 20px ;
+}
+form label input  {
+    padding-left: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.cpy {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 5px;
+    padding: 30px 30px 30px 30px;
+    background-color: brown;
+    color: white;
+}
+
+/* staff members style */
+
+
+.staff-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between members */
+  justify-content: center; /* Center the members */
+}
+
+.staff-member {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  width: 200px; /* Adjust width as needed */
+  text-align: center;
+}   
+
+.staff-member img {
+  width: 100%; /* Image takes full width of container */
+  height: auto;
+  border-radius: 50%; /* Optional: for round images */
+  margin-bottom: 10px;
+}
+
+.staff-member h3 {
+  margin: 0 0 5px 0;
+}
+
+.staff-member p {
+  margin: 0;
+  color: #555;
+}
