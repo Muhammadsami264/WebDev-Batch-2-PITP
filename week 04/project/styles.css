@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    zoom: 96%;
+    
 }
 
 .top-bar{
@@ -70,7 +72,7 @@
 
 .nav1 {
     padding-left:16px ;
-    padding-top: 5px;
+    padding-top: 10px;
     font-family:cursive ;
     font-weight: 500;
 }
@@ -87,6 +89,7 @@
 }
 .nav2  :hover{
     color: brown;
+    cursor: pointer;
 }
 
 .logo-name{
@@ -116,6 +119,7 @@
     transform: translateY(3px);
     transition: all(0.4s);
     color: brown;
+    cursor: pointer;
 }
 
 .school-intro{
@@ -239,11 +243,9 @@ input{
 }
 .footer{
      background-color: rgb(182, 179, 179);
+     zoom: 100%;
 }
 
-footer{
-    
-}
 
 .endlogo {
     
@@ -290,40 +292,4 @@ form label input  {
     padding: 30px 30px 30px 30px;
     background-color: brown;
     color: white;
-}
-
-/* staff members style */
-
-
-.staff-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Space between members */
-  justify-content: center; /* Center the members */
-}
-
-.staff-member {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 15px;
-  width: 200px; /* Adjust width as needed */
-  text-align: center;
-}   
-
-.staff-member img {
-  width: 100%; /* Image takes full width of container */
-  height: auto;
-  border-radius: 50%; /* Optional: for round images */
-  margin-bottom: 10px;
-}
-
-.staff-member h3 {
-  margin: 0 0 5px 0;
-}
-
-.staff-member p {
-  margin: 0;
-  color: #555;
 }
