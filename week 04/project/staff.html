@@ -1,154 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teaching Staff</title>
-    <style>
-      body{font-family: Arial, Helvetica, sans-serif; color:#222;}
-      .table-h1{margin-bottom:12px}
-      .staff-table{width:100%;border-collapse:collapse;margin-top:12px}
-      .staff-table th,.staff-table td{border:1px solid #ddd;padding:12px;vertical-align:top}
-      .staff-table th{background:#f7f7f7;text-align:left}
-      .staff-table td.details p{margin:6px 0}
-      .contact a{display:inline-block;margin-right:10px;color:#0066cc;text-decoration:none}
-      .contact a:hover{text-decoration:underline}
-      @media (max-width:600px){
-        .staff-table thead{display:none}
-        .staff-table tr{display:block;margin-bottom:14px;border:1px solid #e6e6e6}
-        .staff-table td{display:block;padding:8px 12px;position:relative}
-        .staff-table td:before{content:attr(data-label);font-weight:700;display:inline-block;width:40%;color:#333}
-        .staff-table td.details{padding-left:12px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching Staff</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+    }
+
+    .table-h1 {
+      margin-bottom: 12px
+    }
+
+    .staff-table {
+      width: 100%;
+      margin-top: 12px
+    }
+
+    .staff-table th,
+    .staff-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      /* vertical-align: top */
+    }
+
+    .staff-table th {
+      background: #f7f7f7;
+      text-align: left
+    }
+
+    .staff-table td.details p {
+      margin: 6px 0
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-right: 10px;
+      color: #0066cc;
+      text-decoration: none
+    }
+
+    .contact a:hover {
+      text-decoration: underline
+    }
+
+    /* @media (max-width:600px) {
+      .staff-table thead {
+        display: none
       }
-    </style>
 
-    <link rel="stylesheet" href="./styles.css">
+      .staff-table tr {
+        display: block;
+        margin-bottom: 14px;
+        border: 1px solid #e6e6e6
+      }
 
-  </head>
-  <body>
+      .staff-table td {
+        display: block;
+        padding: 8px 12px;
+        position: relative
+      }
 
-    <section class="top-nav"> 
-            <div class="top-bar"> 
-                <nav class="top-L">
-                    <button><a href="">Inquire</a></button>
-                    <button><a href="">News</a></button>
-                    <button><a href="">Give</a></button>
-                    <button><a href="">Alumni</a></button>
-                    <button><a href="">Info.</a></button>
-                </nav>
-                <nav class="top-R">
-                    <a href="#tiktok"><img src="./images/tiktok-fill.svg" alt="TT"></a>
-                    <a href="#facebook"><img src="./images/facebook-box-fill.svg" alt="fb"></a>
-                    <a href="#youtube"> <img src="./images/youtube-fill.svg" alt="YT"></a>
-                    <a href="Instagram"> <img src="./images/instagram-line.svg" alt="IG"></a>
-                    <a href="Linkedin"><img src="./images/linkedin-box-fill.svg" alt="In"></a>
-                </nav>
-            </div>
-            <div class="mainnav">
-                <div class="logo-name">
-                     <img  class="graduation" src="./images/graduation-cap-line.svg" alt="">
-                    <h1 class="nav1" style="padding-top: 10px;">Mehran City Campus</h1>
-                </div>
-                <div class="nav2" style="padding-bottom: 10px;">
-                    <a href="./index.html">About</a>
-                    <a href="./foam.html">Admissions</a>
-                    <a href="./index.html">Academics</a>
-                    <a href="./index.html">Student Life</a>
-                    <a href=""><img  class="search" src="./images/search-2-line.svg" alt=""></a>               
-                </div>
-            </div>
-        </section>
+      .staff-table td:before {
+        content: attr(data-label);
+        font-weight: 700;
+        display: inline-block;
+        width: 40%;
+        color: #333
+      }
 
-    <main>
-      <h1 class="table-h1" style="padding: 15px 0px 15px 0px; display: flex; align-items: center; justify-content: center; color: white ; background-color: brown;">Our Teaching Staff</h1>
+      .staff-table td.details {
+        padding-left: 12px
+      } */
+    
+  </style>
 
-      <table style="zoom: 150%; padding: 20px;" class="staff-table">
-        <thead>
-          <tr>
-            <th style="background-color: brown; color: white;">Name</th>
-            <th style="background-color: brown; color: white;">Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="Name">Sir Umar Farooque</td>
-            <td class="details" data-label="Details">
-              <p><strong>Experience:</strong> 8 years (Lecturer - Computer Science)</p>
-              <p><strong>Teaching Specialization:</strong> Web Development, Front-end Technologies, JavaScript</p>
-              <p><strong>Personal Info:</strong> M.Sc. in Computer Science, enjoys mentoring students and running coding workshops.</p>
-              <p class="contact"><strong>Contact:</strong> <a href="mailto:umarfarooque@example.com">umarfarooque@example.com</a> <a href="tel:+923001234567">+92 300 1234567</a></p>
-            </td>
-          </tr>
+  <link rel="stylesheet" href="./styles.css">
 
-          <tr>
-            <td data-label="Name">Ms. Aisha Khan</td>
-            <td class="details" data-label="Details">
-              <p><strong>Experience:</strong> 5 years (Assistant teacher)</p>
-              <p><strong>Teaching Specialization:</strong> English Teaching and Literature</p>
-              <p><strong>Personal Info:</strong> MS in English Literature</p>
-              <p class="contact"><strong>Contact:</strong> <a href="mailto:aisha.khan@example.com">aisha.khan@example.com</a> <a href="tel:+923001234568">+92 300 1234568</a></p>
-            </td>
-          </tr>
+</head>
 
-          <tr>
-            <td data-label="Name">Mr. Bilal Ahmed</td>
-            <td class="details" data-label="Details">
-              <p><strong>Experience:</strong> 12 years (Senior Lecturer)</p>
-              <p><strong>Teaching Specialization:</strong> Mathematics</p>
-              <p><strong>Personal Info:</strong>Teaching with expertise in mathematics and problem-solving.</p>
-              <p class="contact"><strong>Contact:</strong> <a href="mailto:bilal.ahmed@example.com">bilal.ahmed@example.com</a> <a href="tel:+923001234569">+92 300 1234569</a></p>
-            </td>
-          </tr>
+<body>
 
-          <tr>
-            <td data-label="Name">Dr. Sana Riaz</td>
-            <td class="details" data-label="Details">
-              <p><strong>Experience:</strong> 5 years (Associate Professor)</p>
-              <p><strong>Teaching Specialization:</strong> Science</p>
-              <p><strong>Personal Info:</strong> PhD in Science and Research.</p>
-              <p class="contact"><strong>Contact:</strong> <a href="mailto:sana.riaz@example.com">sana.riaz@example.com</a> <a href="tel:+923001234570">+92 300 1234570</a></p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <footer style="zoom: 110%;" class="footer">
-        
-        <div class="end">
-           
-            <span class="endlogo"> 
-                <img  class="graduation" src="./images/graduation-cap-line.svg" alt=""> Mehran City
-                 Campus
-            </span>
-            <span class="contact">
-                <h2>Contact</h2>
-                <p>Mehran University of Engineering and Technology <br>Helpline: 03268985400
-                <br>
-                Email: mehranschool@gmail.com
-                <br>
-                <h2>Links</h2>
-                Fb: MehranCityCampus264
-                <br>
-                Ig: Mehran_city_campus264
-                </p>     
-            </span>
-            <div style="margin-top: 60px; border: none;">
-                <form action="email">
-                    <label for="email" >NEWSLETTER SIGN-UP</label><br>
-                    <input type="email" required placeholder="email-address@gmail.com" id="email" name="email">
-                    <br><br>
-                    <button style="padding: 10px; border-radius: 10px;" >submit</button>
-                </form>  
-            </div>
+  <section class="top-nav">
+    <div class="top-bar">
+      <nav class="top-L">
+        <button><a href="">Inquire</a></button>
+        <button><a href="">News</a></button>
+        <button><a href="">Give</a></button>
+        <button><a href="">Alumni</a></button>
+        <button><a href="">Info.</a></button>
+      </nav>
+      <nav class="top-R">
+        <a href="#tiktok"><img src="./images/tiktok-fill.svg" alt="TT"></a>
+        <a href="#facebook"><img src="./images/facebook-box-fill.svg" alt="fb"></a>
+        <a href="#youtube"> <img src="./images/youtube-fill.svg" alt="YT"></a>
+        <a href="Instagram"> <img src="./images/instagram-line.svg" alt="IG"></a>
+        <a href="Linkedin"><img src="./images/linkedin-box-fill.svg" alt="In"></a>
+      </nav>
+    </div>
+    <div class="mainnav">
+      <div class="logo-name">
+        <img class="graduation" src="./images/graduation-cap-line.svg" alt="">
+        <h1 class="nav1" style="padding-top: 10px;">Mehran City Campus</h1>
+      </div>
+      <div class="nav2" style="padding-bottom: 10px;">
+        <a href="./index.html">Home</a>
+        <a href="./foam.html">Admissions</a>
+        <a href="./index.html">Academics</a>
+        <a href="./index.html">Student Life</a>
+        <a href=""><img class="search" src="./images/search-2-line.svg" alt=""></a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <h1 class="table-h1"
+      style="padding: 15px 0px 15px 0px; display: flex; align-items: center; justify-content: center; color: white ; background-color: brown;">
+      Our Teaching Staff</h1>
+
+    <table style="zoom: 150%; padding: 20px;" class="staff-table">
+      <thead>
+        <tr>
+          <th style="background-color: brown; color: white;">Name</th>
+          <th style="background-color: brown; color: white;">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Name">Sir Umar Farooque</td>
+          <td class="details" data-label="Details">
+            <p><strong>Experience:</strong> 8 years (Lecturer - Computer Science)</p>
+            <p><strong>Teaching Specialization:</strong> Web Development, Front-end Technologies, JavaScript</p>
+            <p><strong>Personal Info:</strong> M.Sc. in Computer Science, enjoys mentoring students and running coding
+              workshops.</p>
+            <p class="contact"><strong>Contact:</strong> <a
+                href="mailto:umarfarooque@example.com">umarfarooque@example.com</a> <a href="tel:+923001234567">+92 300
+                1234567</a></p>
+          </td>
+        </tr>
+
+        <tr>
+          <td data-label="Name">Ms. Aisha Khan</td>
+          <td class="details" data-label="Details">
+            <p><strong>Experience:</strong> 5 years (Assistant teacher)</p>
+            <p><strong>Teaching Specialization:</strong> English Teaching and Literature</p>
+            <p><strong>Personal Info:</strong> MS in English Literature</p>
+            <p class="contact"><strong>Contact:</strong> <a
+                href="mailto:aisha.khan@example.com">aisha.khan@example.com</a> <a href="tel:+923001234568">+92 300
+                1234568</a></p>
+          </td>
+        </tr>
+
+        <tr>
+          <td data-label="Name">Mr. Bilal Ahmed</td>
+          <td class="details" data-label="Details">
+            <p><strong>Experience:</strong> 12 years (Senior Lecturer)</p>
+            <p><strong>Teaching Specialization:</strong> Mathematics</p>
+            <p><strong>Personal Info:</strong>Teaching with expertise in mathematics and problem-solving.</p>
+            <p class="contact"><strong>Contact:</strong> <a
+                href="mailto:bilal.ahmed@example.com">bilal.ahmed@example.com</a> <a href="tel:+923001234569">+92 301234569</a></p>
+          </td>
+        </tr>
+
+        <tr>
+          <td data-label="Name">Dr. Sana Riaz</td>
+          <td class="details" data-label="Details">
+            <p><strong>Experience:</strong> 5 years (Associate Professor)</p>
+            <p><strong>Teaching Specialization:</strong> Science</p>
+            <p><strong>Personal Info:</strong> PhD in Science and Research.</p>
+            <p class="contact"><strong>Contact:</strong> <a
+                href="mailto:sana.riaz@example.com">sana.riaz@example.com</a> <a href="tel:+923001234570">+92 300
+                1234570</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer style="zoom: 110%;" class="footer">
+
+      <div class="end">
+
+        <span class="endlogo">
+          <img class="graduation" src="./images/graduation-cap-line.svg" alt=""> Mehran City
+          Campus
+        </span>
+        <span class="contact">
+          <h2>Contact</h2>
+          <p>Mehran University of Engineering and Technology <br>Helpline: 03268985400
+            <br>
+            Email: mehranschool@gmail.com
+            <br>
+          <h2>Links</h2>
+          Fb: MehranCityCampus264
+          <br>
+          Ig: Mehran_city_campus264
+          </p>
+        </span>
+        <div style="margin-top: 60px; border: none;">
+          <form action="email">
+            <label for="email">NEWSLETTER SIGN-UP</label><br>
+            <input type="email" required placeholder="email-address@gmail.com" id="email" name="email">
+            <br><br>
+            <button style="padding: 10px; border-radius: 10px;">submit</button>
+          </form>
         </div>
+      </div>
 
-        <div class="cpy">
-            <h6 style="font-size: 15px;">&copy; Mehran City Campus 2025</h6>
-            <h6 style="font-size: 15px;">| All Rights reserved. |</h6>
-        </div>
-         
+      <div class="cpy">
+        <h6 style="font-size: 15px;">&copy; Mehran City Campus 2025</h6>
+        <h6 style="font-size: 15px;">| All Rights reserved. |</h6>
+      </div>
+
     </footer>
-    </main>
+  </main>
 
-  </body>
+</body>
+
 </html>
+
 </html>
