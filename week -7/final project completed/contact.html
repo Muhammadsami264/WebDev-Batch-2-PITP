@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Career Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+   <!-- RESPONSIVE NAVBAR (Fixed) -->
+<nav class="navbar navbar-expand-lg modern-navbar fixed-top">
+    <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand-advanced text-decoration-none" href="index.html">
+            <i class="bi bi-briefcase-fill fs-4"></i>
+            <span>Career<span class="text-dark">Connect</span>
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false">
+            <i class="bi bi-list fs-2 text-dark"></i>
+        </button>
+
+        <!-- Links & CTA -->
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link-custom text-decoration-none" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link-custom text-decoration-none" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link-custom text-decoration-none" href="employers.html">Employers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link-custom text-decoration-none" href="find-jobs.html">Find Jobs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link-custom text-decoration-none" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            
+            <!-- Post Job Button (Hidden on Mobile via CSS) -->
+            <div class="btn-post-job-container">
+                <a href="employers.html" class="btn btn-post-job rounded-pill px-4">
+                    <i class="bi bi-plus-lg me-2"></i>Post Job
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Add this line BEFORE your existing script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    // 1. Get the toggle button and the menu
+    const toggler = document.querySelector('.navbar-toggler');
+    const navCollapse = document.getElementById('mainNav');
+
+    if (toggler && navCollapse) {
+        // 2. Ensure Bootstrap toggles work (Letting Bootstrap handle the logic)
+        toggler.addEventListener('click', function () {
+            // Optional: Force check (for debugging)
+            const isExpanded = navCollapse.classList.contains('show');
+            console.log('Menu toggled. Expanded state:', isExpanded);
+        });
+    }
+
+    // 3. FIX: Close menu automatically when a link is clicked on Mobile
+    const navLinks = document.querySelectorAll('.nav-link-custom');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 992 && navCollapse) {
+                navCollapse.classList.remove('show');
+                // Optional: Reset button icon (Bootstrap usually does this, but good to be sure)
+                toggler.classList.add('collapsed');
+                toggler.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+</script>
+
+    <br>
+    <br>
+
+    <div class="container py-5">
+        
+        <!-- PAGE HEADER -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold display-5">We're Here to Help</h1>
+            <p class="text-muted lead">Have questions? We've got answers and support 24/7.</p>
+        </div>
+
+        <!-- MAIN CONTENT: INFO + FORM -->
+        <div class="row g-5">
+            
+            <!-- LEFT COLUMN: CONTACT INFO -->
+            <div class="col-lg-4">
+                <div class="info-card">
+                    <h4 class="fw-bold mb-4">Contact Details</h4>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Head Office</h6>
+                            <p class="text-muted small mb-0">DHA Phase 6, Karachi, Pakistan</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="bi bi-telephone-fill"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Phone Support</h6>
+                            <p class="text-muted small mb-0">+92 21 3456 7890</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="bi bi-envelope-fill"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Email Us</h6>
+                            <p class="text-muted small mb-0">support@careerconnect.pk</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <h6 class="fw-bold mb-3">Connect Socially</h6>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-outline-primary rounded-circle"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-outline-primary rounded-circle"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-outline-primary rounded-circle"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: CONTACT FORM -->
+            <div class="col-lg-8">
+                <div class="form-card">
+                    <h4 class="fw-bold mb-4">Send us a Message</h4>
+                    
+                    <!-- Feedback Alert -->
+                    <div id="contactFeedback" class="alert d-none"></div>
+
+                    <form id="contactForm" onsubmit="return validateForm(event)">
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">First Name</label>
+                                <input type="text" class="form-control" id="fName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Last Name</label>
+                                <input type="text" class="form-control" id="lName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Subject</label>
+                            <select class="form-select" id="subject" required>
+                                <option value="" selected disabled>Select a topic...</option>
+                                <option value="General">General Inquiry</option>
+                                <option value="Technical">Technical Support</option>
+                                <option value="Billing">Billing & Pricing</option>
+                                <option value="Report">Report Abuse</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold">Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="How can we help you today?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold rounded-pill">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+        </div> <!-- End Row -->
+
+        <br>
+        <br>
+
+
+        <!-- SECTION 2: INSIGHTS & FAQ -->
+        <div class="insight-section">
+            <h3 class="fw-bold text-center mb-4">Common Questions & Insights</h3>
+            <div class="row g-4 text-center">
+                
+                <!-- Insight 1 -->
+                <div class="col-md-4">
+                    <div class="insight-card">
+                        <i class="bi bi-lightbulb insight-icon"></i>
+                        <h5 class="fw-bold mb-2">How to Apply?</h5>
+                        <p class="text-muted small">
+                            Browse our "Find Jobs" page, click Apply, and fill out the simple form. No account required.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Insight 2 -->
+                <div class="col-md-4">
+                    <div class="insight-card">
+                        <i class="bi bi-clock-history insight-icon"></i>
+                        <h5 class="fw-bold mb-2">Response Time</h5>
+                        <p class="text-muted small">
+                            Our support team typically replies to emails within 12-24 hours. Emergency support is available 24/7.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Insight 3 -->
+                <div class="col-md-4">
+                    <div class="insight-card">
+                        <i class="bi bi-shield-lock insight-icon"></i>
+                        <h5 class="fw-bold mb-2">Privacy & Data</h5>
+                        <p class="text-muted small">
+                            We do not share your CV with third parties. Your data is encrypted and secure with us.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div> <!-- End Container -->
+
+    <!-- FOOTER -->
+   <!-- PROFESSIONAL DEEP DARK FOOTER -->
+<footer style="background-color: #4b5563;" class="dark-pro-footer">
+    <div class="container">
+        <div class="row gy-5">
+            
+            <!-- COLUMN 1: BRAND & NEWSLETTER -->
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Career Connect</h5>
+                <p class="mb-4">
+                    The #1 Job Portal in Pakistan. We connect top talent with the best opportunities.
+                </p>
+                
+                <!-- Newsletter Module -->
+                <div class="newsletter-box">
+                    <form>
+                        <input type="email" class="form-control newsletter-input" placeholder="Enter your email address">
+                        <button type="button" class="newsletter-btn">Join Now</button>
+                    </form>
+                </div>
+
+                <!-- Socials -->
+                <div class="social-container">
+                    <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: QUICK LINKS -->
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading">Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="bi bi-chevron-right"></i>Home Page</a></li>
+                    <li><a href="about.html"><i class="bi bi-chevron-right"></i>About Us</a></li>
+                    <li><a href="find-jobs.html"><i class="bi bi-chevron-right"></i>Browse Jobs</a></li>
+                    <li><a href="employers.html"><i class="bi bi-chevron-right"></i>Post a Job</a></li>
+                    <li><a href="contact.html"><i class="bi bi-chevron-right"></i>Contact Support</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 3: SUPPORT & DETAILS -->
+            <div class="col-lg-4 col-md-6">
+                <h5 class="footer-heading">Get in Touch</h5>
+                <p class="mb-4">We are available 24/7 to assist you.</p>
+                
+                <!-- Contact Items -->
+                <div class="support-item">
+                    <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                    <div>
+                        <strong class="d-block">Head Office</strong>
+                        <span class="d-block">Phase-I, Jamshoro, Sindh</span>
+                    </div>
+                </div>
+
+                <div class="support-item">
+                    <div class="info-icon"><i class="bi bi-telephone-fill"></i></div>
+                    <div>
+                        <strong class="d-block">Support Hotline</strong>
+                        <span class="d-block">+92 3268985400</span>
+                    </div>
+                </div>
+
+                <div class="support-item">
+                    <div class="info-icon"><i class="bi bi-envelope-fill"></i></div>
+                    <div>
+                        <strong class="d-block">Email Us</strong>
+                        <span class="d-block">samisoomro264@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="support-item">
+                    <div class="info-icon"><i class="bi bi-question-circle"></i></div>
+                    <div>
+                        <strong class="d-block">Help Center</strong>
+                        <span class="d-block">Visit FAQ Section</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMN 4: APP DOWNLOAD -->
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Connect App</h5>
+                <p class="mb-4">Apply on the go.</p>
+                
+                <!-- App Buttons -->
+                <a href="#" class="app-btn">
+                    <i class="bi bi-apple"></i>
+                    <div>
+                        <small class="d-block opacity-75">Download on the</small>
+                        <strong>App Store</strong>
+                    </div>
+                </a>
+
+                <a href="#" class="app-btn">
+                    <i class="bi bi-google-play"></i>
+                    <div>
+                        <small class="d-block opacity-75">GET IT ON</small>
+                        <strong>Google Play</strong>
+                    </div>
+                </a>
+                
+                <div class="mt-4">
+                    <h6 class="text-white text-uppercase fw-bold">Follow Us</h6>
+                    <div class="social-container" style="margin-top: 10px;">
+                        <a href="#" class="social-icon" style="width: 36px; height: 36px; font-size: 1rem;"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-icon" style="width: 36px; height: 36px; font-size: 1rem;"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- End Row -->
+
+        <!-- FOOTER BOTTOM -->
+        <div class="footer-bottom">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 Career Connect. | Muhammad Sami PITP Batch #2 All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- MINIMAL JS LOGIC (Validation) -->
+    <script>
+        function validateForm(e) {
+            e.preventDefault();
+            
+            // Get Elements by ID
+            const fname = document.getElementById('fName').value;
+            const lname = document.getElementById('lName').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const msg = document.getElementById('message').value;
+            const feedback = document.getElementById('contactFeedback');
+
+            // Simple Validation
+            if (fname && lname && email.includes('@') && subject && msg) {
+                // Success
+                feedback.className = 'alert alert-success mt-3';
+                feedback.innerText = "Thank you! Your message has been sent to our support team.";
+                feedback.classList.remove('d-none');
+                document.getElementById('contactForm').reset();
+            } else {
+                // Error
+                feedback.className = 'alert alert-danger mt-3';
+                feedback.innerText = "Please fill in all fields correctly (Email must contain @).";
+                feedback.classList.remove('d-none');
+            }
+        }
+    </script>
+
+
+</body>
+</html>

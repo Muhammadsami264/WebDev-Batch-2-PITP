@@ -1,0 +1,446 @@
+/* Custom styles for MUET University Portal - Inspired by official MUET website */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+  --primary-color: #002147; /* MUET Navy Blue */
+  --secondary-color: #FFD700; /* MUET Gold */
+  --accent-color: #0056b3; /* Lighter blue for accents */
+  --neutral-color: #F8F9FA; /* Light gray background */
+  --text-color: #333333; /* Dark text */
+  --light-text: #666666; /* Light text */
+  --white: #FFFFFF;
+  --border-color: #E0E0E0;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* Navigation */
+.navbar {
+  background-color: var(--primary-color) !important;
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--secondary-color) !important;
+}
+
+.navbar-nav .nav-link {
+  color: var(--white) !important;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--secondary-color) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--secondary-color);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 215, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #001a3a 100%);
+  color: var(--white);
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+  opacity: 0.1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  background-color: #E6C200;
+  border-color: #E6C200;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  color: var(--primary-color);
+}
+
+.btn-outline-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--white);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-bottom: none;
+  padding: 1rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  color: var(--text-color);
+}
+
+/* Department Cards */
+.department-card {
+  margin-bottom: 30px;
+  height: 100%;
+}
+
+.department-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Forms */
+.form-control {
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Search Input */
+#searchInput {
+  border-radius: 25px;
+  border: 2px solid var(--primary-color);
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+#searchInput:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+/* Tables */
+.table {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.table thead th {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--neutral-color);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+/* Lists */
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.list-group-item:hover {
+  background-color: var(--neutral-color);
+}
+
+/* Alerts */
+.alert {
+  border-radius: 8px;
+  border: none;
+  padding: 1rem 1.5rem;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 50px 0 20px;
+  margin-top: 50px;
+}
+
+.footer h5 {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.footer a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--secondary-color);
+}
+
+.footer .list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+
+.social-icons {
+  margin-top: 2rem;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  color: var(--white);
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: var(--secondary-color);
+}
+
+/* Sections */
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-title p {
+  font-size: 1.1rem;
+  color: var(--light-text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .btn-primary {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .section-title h2 {
+    font-size: 2rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .social-icons {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}

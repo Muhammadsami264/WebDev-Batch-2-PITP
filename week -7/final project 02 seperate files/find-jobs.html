@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Jobs | Career Connect</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi bi-briefcase-fill me-2"></i>Career<span
+            style="color: var(--text-dark)"
+            >Connect</span
+          >
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="employers.html">Employers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="find-jobs.html">Find Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <div class="pkt-clock">
+                <i class="bi bi-clock"></i>
+                <span id="pakistan-time">Loading...</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div style="height: 80px"></div>
+
+    <main>
+      <div class="container py-5">
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-6">
+            <h2 class="fw-bold">Latest Job Openings</h2>
+            <p class="text-muted">
+              Showing <span id="job-count">0</span> opportunities
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <button
+              class="btn btn-light rounded-pill px-4"
+              onclick="resetFilters()"
+            >
+              <i class="bi bi-arrow-counterclockwise"></i> Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="card p-4 mb-5 border-0 shadow-sm bg-white">
+          <div class="row g-3">
+            <div class="col-md-5">
+              <label class="form-label small fw-bold">Keyword</label>
+              <input
+                type="text"
+                id="job-search"
+                class="form-control bg-light"
+                placeholder="e.g. React, Manager..."
+              />
+            </div>
+            <div class="col-md-3">
+              <label class="form-label small fw-bold">Location</label>
+              <select id="job-location" class="form-select bg-light">
+                <option value="All">All Locations</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Remote">Remote</option>
+              </select>
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+              <button
+                class="btn btn-primary w-100 h-100 py-2"
+                onclick="filterJobs()"
+              >
+                Filter Results
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Job Container -->
+        <div id="job-listings-container" class="row g-4">
+          <!-- JS will inject HTML here -->
+        </div>
+
+        <div id="no-results" class="text-center py-5 d-none">
+          <div class="display-1 text-muted mb-3">
+            <i class="bi bi-emoji-frown"></i>
+          </div>
+          <h4 class="fw-bold">No jobs found</h4>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row gy-4">
+          <!-- COLUMN 1: Brand & Description -->
+          <div class="col-lg-4 col-md-6">
+            <h5>
+              <i class="bi bi-briefcase-fill text-primary me-2"></i>Career
+              Connect
+            </h5>
+            <p class="small text-muted">
+              The #1 Job Portal in Pakistan. We bridge the gap between talent
+              and opportunity, helping millions find their dream careers.
+            </p>
+            <div class="social-icons mt-3">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- COLUMN 2: Quick Links (For Candidates & Employers) -->
+          <div class="col-lg-2 col-md-6">
+            <h5>Quick Links</h5>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="find-jobs.html">Browse Jobs</a>
+            <a href="contact.html">Contact Support</a>
+          </div>
+
+          <!-- COLUMN 3: Support & Contact Info -->
+          <div class="col-lg-3 col-md-6">
+            <h5>Get in Touch</h5>
+            <div class="mb-3">
+              <small class="text-muted d-block">Address</small>
+              <span class="d-block">DHA Phase 6, Karachi, Pakistan</span>
+            </div>
+            <div class="mb-3">
+              <small class="text-muted d-block">Email</small>
+              <span class="d-block">support@careerconnect.pk</span>
+            </div>
+            <div class="mb-3">
+              <small class="text-muted d-block">Phone</small>
+              <span class="d-block">+92 21 3456 7890</span>
+            </div>
+          </div>
+
+          <!-- COLUMN 4: Connect Apps & Newsletter -->
+          <div class="col-lg-3 col-md-6">
+            <h5>Connect Apps</h5>
+            <!-- App Store Buttons -->
+            <a href="#" class="app-btn">
+              <i class="bi bi-apple"></i>
+              <div class="text">
+                <span>Download on the</span>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="#" class="app-btn">
+              <i class="bi bi-google-play"></i>
+              <div class="text">
+                <span>GET IT ON</span>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+
+            <!-- Newsletter -->
+            <h5 class="mt-4">Newsletter</h5>
+            <form class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your email"
+              />
+              <button class="btn btn-primary" type="button">Join</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Footer Bottom: Copyright -->
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-md-6 text-md-start text-center">
+              &copy; 2024 Career Connect. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-md-end text-center">
+              <a href="#" style="display: inline; margin-right: 15px"
+                >Privacy Policy</a
+              >
+              <a href="#" style="display: inline">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- PAGE SPECIFIC JS LOGIC -->
+    <script>
+      // 1. Pakistan Time
+      function updateTime() {
+        const now = new Date();
+        document.getElementById("pakistan-time").innerText =
+          new Intl.DateTimeFormat("en-US", {
+            timeZone: "Asia/Karachi",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true,
+          }).format(now) + " PKT";
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
+
+      // 2. Job Data
+      const jobsData = [
+        {
+          id: 1,
+          title: "Senior Frontend Developer",
+          company: "TechFlow Systems",
+          type: "Remote",
+          location: "Karachi",
+          salary: "PKR 250,000 - 350,000",
+          posted: "2 days ago",
+          logo: "https://picsum.photos/seed/tech1/50/50",
+          skills: ["React.js", "Tailwind CSS", "TypeScript"],
+        },
+        {
+          id: 2,
+          title: "UI/UX Designer",
+          company: "Creative Minds",
+          type: "On-site",
+          location: "Lahore",
+          salary: "PKR 120,000 - 180,000",
+          posted: "1 day ago",
+          logo: "https://picsum.photos/seed/design/50/50",
+          skills: ["Figma", "Adobe XD", "Prototyping"],
+        },
+        {
+          id: 3,
+          title: "Data Analyst",
+          company: "FinCorp",
+          type: "Hybrid",
+          location: "Islamabad",
+          salary: "PKR 180,000 - 250,000",
+          posted: "3 days ago",
+          logo: "https://picsum.photos/seed/finance/50/50",
+          skills: ["Python", "SQL", "Tableau"],
+        },
+        {
+          id: 4,
+          title: "HR Manager",
+          company: "Global Logistics",
+          type: "On-site",
+          location: "Karachi",
+          salary: "PKR 150,000 - 200,000",
+          posted: "5 hours ago",
+          logo: "https://picsum.photos/seed/logistics/50/50",
+          skills: ["Recruitment", "Communication"],
+        },
+        {
+          id: 5,
+          title: "Full Stack Engineer",
+          company: "StartupHub",
+          type: "Remote",
+          location: "Remote",
+          salary: "PKR 300,000 - 450,000",
+          posted: "1 week ago",
+          logo: "https://picsum.photos/seed/startup/50/50",
+          skills: ["Node.js", "MongoDB", "React"],
+        },
+        {
+          id: 6,
+          title: "Digital Marketing Lead",
+          company: "BrandBoost",
+          type: "Hybrid",
+          location: "Lahore",
+          salary: "PKR 140,000 - 190,000",
+          posted: "4 days ago",
+          logo: "https://picsum.photos/seed/marketing/50/50",
+          skills: ["SEO", "Google Ads", "Content"],
+        },
+      ];
+
+      // 3. Render Function
+      function renderJobs(jobs) {
+        const container = document.getElementById("job-listings-container");
+        container.innerHTML = "";
+        document.getElementById("job-count").innerText = jobs.length;
+
+        if (jobs.length === 0) {
+          container.classList.add("d-none");
+          document.getElementById("no-results").classList.remove("d-none");
+          return;
+        }
+
+        container.classList.remove("d-none");
+        document.getElementById("no-results").classList.add("d-none");
+
+        jobs.forEach((job) => {
+          const skillsHtml = job.skills
+            .map((skill) => `<span class="skill-tag">${skill}</span>`)
+            .join("");
+
+          // This line creates the link to apply.html with the job title
+          const applyUrl = `apply.html?title=${encodeURIComponent(
+            job.title
+          )}&company=${encodeURIComponent(job.company)}`;
+
+          const html = `
+        <div class="col-lg-4 col-md-6">
+            <div class="card job-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="d-flex align-items-center">
+                        <img src="${job.logo}" class="rounded me-3" width="48" height="48">
+                        <div>
+                            <h5 class="fw-bold mb-0 fs-6 text-truncate" style="max-width: 160px;">${job.title}</h5>
+                            <small class="text-muted fw-bold">${job.company}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <span class="badge bg-light text-dark border mb-1"><i class="bi bi-geo-alt me-1"></i>${job.location}</span>
+                    <span class="badge bg-light text-dark border"><i class="bi bi-clock me-1"></i>${job.type}</span>
+                </div>
+                <div class="mb-3">${skillsHtml}</div>
+                <div class="d-flex justify-content-between align-items-end mt-auto pt-3 border-top">
+                    <div>
+                        <small class="text-muted d-block">Salary</small>
+                        <span class="salary-text">${job.salary}</span>
+                    </div>
+                    <!-- The button is now a link (a tag) pointing to apply.html -->
+                    <a href="${applyUrl}" class="btn btn-primary btn-sm rounded-pill px-3">Apply</a>
+                </div>
+            </div>
+        </div>`;
+          container.innerHTML += html;
+        });
+      }
+
+      // 4. Filter Function
+      function filterJobs() {
+        const text = document.getElementById("job-search").value.toLowerCase();
+        const loc = document.getElementById("job-location").value;
+        const filtered = jobsData.filter((job) => {
+          const matchText =
+            job.title.toLowerCase().includes(text) ||
+            job.company.toLowerCase().includes(text) ||
+            job.skills.some((s) => s.toLowerCase().includes(text));
+          const matchLoc = loc === "All" || job.location === loc;
+          return matchText && matchLoc;
+        });
+        renderJobs(filtered);
+      }
+      function resetFilters() {
+        document.getElementById("job-search").value = "";
+        document.getElementById("job-location").value = "All";
+        renderJobs(jobsData);
+      }
+
+      // Listeners & Init
+      document
+        .getElementById("job-search")
+        .addEventListener("input", filterJobs);
+      document
+        .getElementById("job-location")
+        .addEventListener("change", filterJobs);
+      renderJobs(jobsData);
+    </script>
+  </body>
+</html>

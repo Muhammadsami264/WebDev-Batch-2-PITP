@@ -1,0 +1,741 @@
+/* --- CSS VARIABLES & RESET --- */
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --bg-light: #f3f4f6;
+  --glass-bg: rgba(255, 255, 255, 0.95);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-light);
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--text-dark) !important;
+  margin: 0 10px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+.pkt-clock {
+  background: var(--primary-color);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- HERO & CARDS --- */
+.hero-section {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 20%
+  );
+}
+
+.hero-search-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+/* --- JOB CARDS (Specific) --- */
+.job-card {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.job-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+}
+
+.skill-tag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: #e0e7ff;
+  color: var(--secondary-color);
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.job-card:hover .skill-tag {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.salary-text {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* --- UTILS --- */
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+}
+
+/* Social Icons - Glassy Circle Look */
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05); /* Very light grey glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #e5e7eb;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* App Buttons - Outline Grey Style */
+.app-btn {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #4b5563; /* Grey Border */
+    color: #d1d5db;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    text-decoration: none !important;
+    transition: 0.3s;
+}
+
+.app-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+    transform: none;
+    padding-left: 20px; /* Reset movement */
+}
+
+.app-btn i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #ffffff;
+}
+
+/* Newsletter - Dark Inputs */
+.input-group-text {
+    background-color: #374151; /* Medium Grey */
+    border: 1px solid #4b5563;
+    color: white;
+}
+.form-control {
+    background-color: #374151; /* Matches input-group-text */
+    border: 1px solid #4b5563;
+    color: white;
+}
+.form-control:focus {
+    background-color: #374151;
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: none;
+}
+.form-control::placeholder {
+    color: #9ca3af; /* Grey placeholder text */
+}
+
+
+
+
+/* --- ADVANCED NAVBAR (Solid & Professional) --- */
+.modern-navbar {
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Stronger shadow for depth */
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+    position: fixed; /* Ensures it is fixed on all pages */
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand-advanced {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--primary-color) !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link-custom {
+    color: #4b5563; /* Dark grey for readability */
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.nav-link-custom:hover, .nav-link-custom.active {
+    background-color: #eff6ff; /* Light blue hover bg */
+    color: var(--primary-color) !important;
+}
+
+/* Post Job Button (Advanced) */
+.btn-post-job {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+    transition: transform 0.2s;
+}
+.btn-post-job:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(37, 99, 235, 0.4);
+}
+
+
+/* Social Icons (Glossy on Hover) */
+.social-container {
+    margin-top: 25px;
+}
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1); /* Glassy transparent look */
+    color: white;
+    margin-right: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    transition: 0.3s;
+}
+.social-icon:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-5px) rotate(15deg); /* Pop up and slight tilt */
+}
+
+/* Support Details (Icon + Text) */
+.support-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider */
+}
+.support-item:last-child {
+    border-bottom: none;
+}
+.info-icon {
+    background: rgba(37, 99, 235, 0.2); /* Tinted with brand color */
+    color: #60a5fa; /* Light Blue */
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-right: 18px;
+    flex-shrink: 0;
+}
+
+/* Newsletter (Floating Button) */
+.newsletter-box {
+    position: relative;
+}
+.newsletter-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15px;
+    padding-right: 120px; /* Space for button */
+    border-radius: 8px;
+    width: 100%;
+}
+.newsletter-input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    color: white;
+    outline: none;
+}
+.newsletter-btn {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+.newsletter-btn:hover {
+    background: #1e40af; /* Darker blue on hover */
+    box-shadow: 0 0 15px rgba(30, 64, 175, 0.4);
+}
+
+/* App Buttons (Pill Shape) */
+.app-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    width: 100%;
+}
+.app-btn:hover {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+    transform: translateX(5px); /* Slide right */
+}
+.app-btn i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+.app-btn:hover i { color: var(--primary-color); }
+
+/* --- PROFESSIONAL DEEP DARK FOOTER (Standard & Responsive) --- */
+
+/* The Main Container */
+.dark-pro-footer {
+    /* 1. Deep Dark Gradient Background */
+    background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+    color: #d1d5db; /* Light grey text for readability on dark bg */
+    
+    
+    /* 2. STANDARD PADDING (Reduced for 60% screen fit) */
+    padding-top: 40px; /* Reduced from 60px */
+    padding-bottom: 40px;
+    
+    /* 3. Separation from main page */
+    margin-top: auto;
+    border-top: 4px solid var(--primary-color);
+    
+    font-size: 0.9rem; /* Standard font size */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Headings */
+.dark-pro-footer h5 {
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem; /* Consistent with container */
+    position: relative;
+}
+
+/* Links */
+.dark-pro-footer .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dark-pro-footer .footer-links li {
+    margin-bottom: 15px; /* Good vertical spacing */
+}
+
+.dark-pro-footer .footer-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.dark-pro-footer .footer-links a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.dark-pro-footer .footer-links i {
+    margin-right: 10px;
+    font-size: 0.85rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Social Icons (Compact) */
+.dark-pro-footer .social-container {
+    margin-top: 25px;
+}
+
+.dark-pro-footer .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* Slightly smaller icons for standard look */
+    width: 36px; 
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    margin-right: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.dark-pro-footer .social-icon:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-3px) rotate(15deg);
+}
+
+/* Support Details (Icon + Text) */
+.dark-pro-footer .support-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-pro-footer .support-item:last-child {
+    border-bottom: none;
+}
+
+.dark-pro-footer .info-icon {
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+    width: 40px; /* Standard icon size */
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+/* Newsletter (Floating Button) */
+.dark-pro-footer .newsletter-box {
+    position: relative;
+    display: flex;
+}
+
+.dark-pro-footer .newsletter-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px; /* Compact padding */
+    padding-right: 120px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.dark-pro-footer .newsletter-input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    color: white;
+    outline: none;
+}
+
+.dark-pro-footer .newsletter-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+.dark-pro-footer .newsletter-btn:hover {
+    background: #1e40af;
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* App Buttons (Pill Shape) */
+.dark-pro-footer .app-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.dark-pro-footer .app-btn:hover {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+    transform: translateX(5px);
+}
+
+.dark-pro-footer .app-btn i {
+    font-size: 1.3rem;
+    margin-right: 12px;
+    transition: 0.3s;
+}
+
+.dark-pro-footer .app-btn:hover i {
+    color: var(--primary-color);
+}
+
+/* Footer Bottom (Copyright) */
+.dark-pro-footer .footer-bottom {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Reduced bottom padding for standard look */
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    
+    text-align: center;
+}
+
+.dark-pro-footer .legal-links a {
+    color: #9ca3af;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.dark-pro-footer .legal-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+
+/* --- RESPONSIVE NAVBAR (Mobile First) --- */
+.modern-navbar {
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    padding: 15px 0;
+    border-bottom: 1px solid #f3f4f6;
+    position: fixed;
+    top: 0; right: 0; left: 0;
+    z-index: 1030;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand-advanced {
+    font-weight: 700; font-size: 1.4rem;
+    color: var(--primary-color) !important;
+    display: flex; align-items: center; gap: 8px;
+}
+
+/* Mobile Link Styling */
+.nav-link-custom {
+    color: #4b5563; font-weight: 500; font-size: 0.95rem;
+    padding: 10px 15px; border-radius: 6px; transition: all 0.2s;
+}
+.nav-link-custom:hover, .nav-link-custom.active {
+    background-color: #eff6ff; color: var(--primary-color) !important;
+}
+
+/* Responsive Handling for "Post Job" Button */
+.btn-post-job {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border: none; color: white; font-weight: 600;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+    transition: transform 0.2s;
+}
+.btn-post-job:hover { transform: translateY(-2px); box-shadow: 0 8px 12px rgba(37, 99, 235, 0.4); }
+
+/* Hide Post Job Button on Mobile to keep navbar clean */
+@media (max-width: 991px) {
+    .btn-post-job-container { display: none; }
+}
+@media (min-width: 992px) {
+    .btn-post-job-container { display: block; }
+}
+
+/* --- RESPONSIVE FOOTER (Compact & Information-Reduced on Mobile) --- */
+
+.theme-footer {
+    background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+    color: #d1d5db;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    margin-top: auto;
+    border-top: 4px solid var(--primary-color);
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-heading {
+    color: #ffffff; font-weight: 700;
+    margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.95rem;
+    position: relative;
+}
+
+/* Links */
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 15px; }
+.footer-links a {
+    color: #9ca3af; text-decoration: none; display: flex; align-items: center;
+    transition: 0.3s;
+}
+.footer-links a:hover { color: #ffffff !important; padding-left: 8px; }
+.footer-links i { margin-right: 12px; font-size: 0.85rem; width: 20px; text-align: center; }
+
+/* Support Items */
+.support-item {
+    display: flex; align-items: flex-start;
+    margin-bottom: 25px; padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.support-item:last-child { border-bottom: none; }
+.info-icon {
+    background: rgba(37, 99, 235, 0.2); color: #60a5fa;
+    width: 45px; height: 45px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    margin-right: 15px; flex-shrink: 0;
+}
+
+/* Newsletter */
+.newsletter-form { position: relative; display: flex; }
+.newsletter-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white; padding: 15px; padding-right: 120px;
+    border-radius: 8px; width: 100%;
+}
+.newsletter-input:focus { background: rgba(255, 255, 255, 0.1); border-color: var(--primary-color); color: white; outline: none; }
+.newsletter-btn {
+    position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+    background: var(--primary-color); border: none; color: white;
+    padding: 8px 25px; border-radius: 8px; cursor: pointer;
+    font-weight: 600; letter-spacing: 1px; transition: 0.3s;
+}
+.newsletter-btn:hover { background: #1e40af; transform: translateY(-50%) scale(1.05); }
+
+/* App Buttons */
+.app-btn {
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white; padding: 14px 25px; border-radius: 10px;
+    display: flex; align-items: center; text-decoration: none; margin-bottom: 15px; transition: 0.3s; width: 100%;
+}
+.app-btn:hover { background: white; color: var(--primary-color); border-color: white; transform: translateX(5px); }
+.app-btn i { font-size: 1.5rem; margin-right: 15px; color: #9ca3af; transition: 0.3s; }
+.app-btn:hover i { color: var(--primary-color); }
+
+/* Footer Bottom */
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px; padding-bottom: 20px; text-align: center; color: #6b7280; font-size: 0.85rem;
+}
+.legal-links a { color: #9ca3af; margin: 0 10px; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+.legal-links a:hover { color: white; text-decoration: underline; }
+
+/* --- MOBILE SPECIFIC TWEAKS (Hiding "Necessary" Info) --- */
+@media (max-width: 768px) {
+    /* Hide App Buttons and Newsletter on Mobile to keep footer small */
+    .d-mobile-hide { display: none; }
+    
+    /* Make Footer Stack better on Mobile */
+    .theme-footer .row { display: flex; flex-direction: column; }
+    .theme-footer .col-md-6 { width: 100%; margin-bottom: 30px; }
+    .theme-footer .col-lg-3 { width: 100%; }
+}
+
+footer{
+    zoom: 100%;
+}

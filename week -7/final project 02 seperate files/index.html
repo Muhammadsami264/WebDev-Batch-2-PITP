@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Connect | Home</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR (Copy this to all files, update 'active' class) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi bi-briefcase-fill me-2"></i>Career<span
+            style="color: var(--text-dark)"
+            >Connect</span
+          >
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="employers.html">Employers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="find-jobs.html">Find Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <div class="pkt-clock">
+                <i class="bi bi-clock"></i>
+                <span id="pakistan-time">Loading...</span>
+              </div>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <button
+                class="btn btn-primary rounded-pill px-4"
+                onclick="window.location.href='contact.html'"
+              >
+                Post Job
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div style="height: 80px"></div>
+
+    <main>
+      <div class="hero-section text-center">
+        <div class="container">
+          <h1 class="display-4 fw-bold mb-3">
+            Find Your Dream Job in Pakistan
+          </h1>
+          <p class="lead mb-5 opacity-75">
+            Connecting top talent with the world's best companies.
+          </p>
+          <div
+            class="hero-search-box mx-auto shadow-lg"
+            style="max-width: 900px"
+          >
+            <form
+              class="row g-3"
+              onsubmit="event.preventDefault(); window.location.href='find-jobs.html';"
+            >
+              <div class="col-md-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Job title, keyword..."
+                />
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="City or Province"
+                />
+              </div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-primary w-100 fw-bold">
+                  Search Jobs
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="row mt-5 text-white">
+            <div class="col-md-4">
+              <h3 class="fw-bold">50k+</h3>
+              <p>Active Jobs</p>
+            </div>
+            <div class="col-md-4">
+              <h3 class="fw-bold">12k+</h3>
+              <p>Companies</p>
+            </div>
+            <div class="col-md-4">
+              <h3 class="fw-bold">4M+</h3>
+              <p>Candidates</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container py-5">
+        <h2 class="fw-bold mb-4">Explore Categories</h2>
+        <div class="row g-3">
+          <div class="col-md-3 col-6">
+            <div
+              class="p-4 bg-white rounded shadow-sm border text-center h-100"
+            >
+              <i class="bi bi-code-slash fs-1 text-primary mb-2"></i>
+              <h6 class="fw-bold">Software & IT</h6>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div
+              class="p-4 bg-white rounded shadow-sm border text-center h-100"
+            >
+              <i class="bi bi-palette fs-1 text-danger mb-2"></i>
+              <h6 class="fw-bold">Creative Design</h6>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div
+              class="p-4 bg-white rounded shadow-sm border text-center h-100"
+            >
+              <i class="bi bi-graph-up-arrow fs-1 text-success mb-2"></i>
+              <h6 class="fw-bold">Marketing</h6>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div
+              class="p-4 bg-white rounded shadow-sm border text-center h-100"
+            >
+              <i class="bi bi-cash-coin fs-1 text-warning mb-2"></i>
+              <h6 class="fw-bold">Finance</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row gy-4">
+          <!-- COLUMN 1: Brand & Description -->
+          <div class="col-lg-4 col-md-6">
+            <h5>
+              <i class="bi bi-briefcase-fill text-primary me-2"></i>Career
+              Connect
+            </h5>
+            <p class="small text-muted">
+              The #1 Job Portal in Pakistan. We bridge the gap between talent
+              and opportunity, helping millions find their dream careers.
+            </p>
+            <div class="social-icons mt-3">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- COLUMN 2: Quick Links (For Candidates & Employers) -->
+          <div class="col-lg-2 col-md-6">
+            <h5>Quick Links</h5>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="find-jobs.html">Browse Jobs</a>
+            <a href="contact.html">Contact Support</a>
+          </div>
+
+          <!-- COLUMN 3: Support & Contact Info -->
+          <div class="col-lg-3 col-md-6">
+            <h5>Get in Touch</h5>
+            <div class="mb-3">
+              <small class="text-muted d-block">Address</small>
+              <span class="d-block">DHA Phase 6, Karachi, Pakistan</span>
+            </div>
+            <div class="mb-3">
+              <small class="text-muted d-block">Email</small>
+              <span class="d-block">support@careerconnect.pk</span>
+            </div>
+            <div class="mb-3">
+              <small class="text-muted d-block">Phone</small>
+              <span class="d-block">+92 21 3456 7890</span>
+            </div>
+          </div>
+
+          <!-- COLUMN 4: Connect Apps & Newsletter -->
+          <div class="col-lg-3 col-md-6">
+            <h5>Connect Apps</h5>
+            <!-- App Store Buttons -->
+            <a href="#" class="app-btn">
+              <i class="bi bi-apple"></i>
+              <div class="text">
+                <span>Download on the</span>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="#" class="app-btn">
+              <i class="bi bi-google-play"></i>
+              <div class="text">
+                <span>GET IT ON</span>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+
+            <!-- Newsletter -->
+            <h5 class="mt-4">Newsletter</h5>
+            <form class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your email"
+              />
+              <button class="btn btn-primary" type="button">Join</button>
+            </form>
+          </div>
+        </div>
+        <!-- Footer Bottom: Copyright -->
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-md-6 text-md-start text-center">
+              &copy; 2024 Career Connect. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-md-end text-center">
+              <a href="#" style="display: inline; margin-right: 15px"
+                >Privacy Policy</a
+              >
+              <a href="#" style="display: inline">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Page Specific JS -->
+    <script>
+      // Pakistan Time Logic
+      function updateTime() {
+        const now = new Date();
+        const timeString = new Intl.DateTimeFormat("en-US", {
+          timeZone: "Asia/Karachi",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        }).format(now);
+        document.getElementById(
+          "pakistan-time"
+        ).innerText = `${timeString} PKT`;
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
+    </script>
+  </body>
+</html>

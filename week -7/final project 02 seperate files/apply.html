@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply Now | Career Connect</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Links to your design -->
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi bi-briefcase-fill me-2"></i>Career<span
+            style="color: var(--text-dark)"
+            >Connect</span
+          >
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="employers.html">Employers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="find-jobs.html">Find Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <div class="pkt-clock">
+                <i class="bi bi-clock"></i>
+                <span id="pakistan-time">Loading...</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div style="height: 80px"></div>
+
+    <main>
+      <div class="container py-5">
+        <!-- Job Context Banner -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-lg-10">
+            <div
+              class="alert alert-primary border-0 shadow-sm d-flex align-items-center"
+              role="alert"
+            >
+              <i class="bi bi-briefcase-fill fs-1 me-3"></i>
+              <div>
+                <h4 class="alert-heading fw-bold mb-1">
+                  Applying for: <span id="job-title-display">Loading...</span>
+                </h4>
+                <p class="mb-0">
+                  at <span id="company-name-display">...</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Application Form -->
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card shadow-lg border-0 rounded-4 p-4">
+              <div class="card-body">
+                <h3 class="fw-bold mb-4">Candidate Details</h3>
+
+                <!-- Feedback Alert -->
+                <div id="app-feedback" class="alert d-none"></div>
+
+                <form id="applicationForm" novalidate>
+                  <!-- Personal Info -->
+                  <h5 class="fw-bold mb-3 text-primary">
+                    <i class="bi bi-person me-2"></i>Personal Info
+                  </h5>
+                  <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                      <label class="form-label small fw-bold">Full Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="fullName"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label small fw-bold"
+                        >Email Address</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label small fw-bold"
+                        >Phone Number</label
+                      >
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        placeholder="+92 300 1234567"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label small fw-bold"
+                        >Current City</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="location"
+                        placeholder="e.g. Karachi"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <hr class="my-4" />
+
+                  <!-- Professional Info -->
+                  <h5 class="fw-bold mb-3 text-primary">
+                    <i class="bi bi-briefcase me-2"></i>Professional Info
+                  </h5>
+                  <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                      <label class="form-label small fw-bold"
+                        >Total Experience</label
+                      >
+                      <select class="form-select" id="experience" required>
+                        <option value="" selected disabled>
+                          Select experience...
+                        </option>
+                        <option value="0-1">Fresher (0-1 Years)</option>
+                        <option value="1-3">Junior (1-3 Years)</option>
+                        <option value="3-5">Mid-Level (3-5 Years)</option>
+                        <option value="5+">Senior (5+ Years)</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label small fw-bold"
+                        >Expected Salary (PKR)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="salary"
+                        placeholder="e.g. 100000"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label small fw-bold"
+                        >Notice Period</label
+                      >
+                      <select class="form-select" id="noticePeriod" required>
+                        <option value="" selected disabled>
+                          Select availability...
+                        </option>
+                        <option value="Immediate">Immediate Joining</option>
+                        <option value="15 Days">15 Days</option>
+                        <option value="1 Month">1 Month</option>
+                        <option value="2 Months">2 Months</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <hr class="my-4" />
+
+                  <!-- Documents -->
+                  <h5 class="fw-bold mb-3 text-primary">
+                    <i class="bi bi-file-earmark-text me-2"></i>Documents
+                  </h5>
+                  <div class="mb-4">
+                    <label class="form-label small fw-bold"
+                      >Upload Resume / CV</label
+                    >
+                    <input
+                      class="form-control"
+                      type="file"
+                      id="resume"
+                      accept=".pdf,.doc,.docx"
+                      required
+                    />
+                    <div class="form-text">Accepted formats: PDF, DOCX.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label small fw-bold"
+                      >Cover Letter (Optional)</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="coverLetter"
+                      rows="4"
+                      placeholder="Tell us why you are best fit..."
+                    ></textarea>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <a
+                      href="find-jobs.html"
+                      class="btn btn-light rounded-pill px-4"
+                      >Cancel</a
+                    >
+                    <button
+                      type="submit"
+                      class="btn btn-primary rounded-pill px-5 fw-bold"
+                    >
+                      Submit Application
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row gy-4">
+          <!-- COLUMN 1: Brand & Description -->
+          <div class="col-lg-4 col-md-6">
+            <h5>
+              <i class="bi bi-briefcase-fill text-primary me-2"></i>Career
+              Connect
+            </h5>
+            <p class="small text-muted">
+              The #1 Job Portal in Pakistan. We bridge the gap between talent
+              and opportunity, helping millions find their dream careers.
+            </p>
+            <div class="social-icons mt-3">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- COLUMN 2: Quick Links (For Candidates & Employers) -->
+          <div class="col-lg-2 col-md-6">
+            <h5>Quick Links</h5>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="find-jobs.html">Browse Jobs</a>
+            <a href="contact.html">Contact Support</a>
+          </div>
+
+          <!-- COLUMN 3: Support & Contact Info -->
+          <div class="col-lg-3 col-md-6">
+            <h5>Get in Touch</h5>
+            <div class="mb-3">
+              <small class="text-muted d-block">Address</small>
+              <span class="d-block">DHA Phase 6, Karachi, Pakistan</span>
+            </div>
+            <div class="mb-3">
+              <small class="text-muted d-block">Email</small>
+              <span class="d-block">support@careerconnect.pk</span>
+            </div>
+            <div class="mb-3">
+              <small class="text-muted d-block">Phone</small>
+              <span class="d-block">+92 21 3456 7890</span>
+            </div>
+          </div>
+
+          <!-- COLUMN 4: Connect Apps & Newsletter -->
+          <div class="col-lg-3 col-md-6">
+            <h5>Connect Apps</h5>
+            <!-- App Store Buttons -->
+            <a href="#" class="app-btn">
+              <i class="bi bi-apple"></i>
+              <div class="text">
+                <span>Download on the</span>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="#" class="app-btn">
+              <i class="bi bi-google-play"></i>
+              <div class="text">
+                <span>GET IT ON</span>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+
+            <!-- Newsletter -->
+            <h5 class="mt-4">Newsletter</h5>
+            <form class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your email"
+              />
+              <button class="btn btn-primary" type="button">Join</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Footer Bottom: Copyright -->
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-md-6 text-md-start text-center">
+              &copy; 2024 Career Connect. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-md-end text-center">
+              <a href="#" style="display: inline; margin-right: 15px"
+                >Privacy Policy</a
+              >
+              <a href="#" style="display: inline">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- PAGE SPECIFIC JS -->
+    <script>
+      // 1. Pakistan Time
+      function updateTime() {
+        const now = new Date();
+        document.getElementById("pakistan-time").innerText =
+          new Intl.DateTimeFormat("en-US", {
+            timeZone: "Asia/Karachi",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true,
+          }).format(now) + " PKT";
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
+
+      // 2. Read Job Title from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const jobTitle = urlParams.get("title");
+      const companyName = urlParams.get("company");
+
+      if (!jobTitle) {
+        // If user opens this page directly without selecting a job
+        document.getElementById("job-title-display").innerText =
+          "No Job Selected";
+        document.getElementById(
+          "job-title-display"
+        ).parentElement.innerHTML += `<br><small class="text-muted">Please go back to <a href="find-jobs.html">Find Jobs</a>.</small>`;
+        document.getElementById("applicationForm").style.display = "none";
+      } else {
+        document.getElementById("job-title-display").innerText = jobTitle;
+        document.getElementById("company-name-display").innerText = companyName;
+      }
+
+      // 3. Form Validation
+      document
+        .getElementById("applicationForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("fullName").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const exp = document.getElementById("experience").value;
+          const notice = document.getElementById("noticePeriod").value;
+          const salary = document.getElementById("salary").value.trim();
+          const resumeInput = document.getElementById("resume");
+          const feedback = document.getElementById("app-feedback");
+
+          feedback.classList.remove("d-none", "alert-success", "alert-danger");
+
+          let isValid = true;
+          let errorMsg = "";
+
+          if (!name || !email || !phone || !exp || !notice || !salary) {
+            isValid = false;
+            errorMsg = "Please fill in all required fields.";
+          } else if (!email.includes("@")) {
+            isValid = false;
+            errorMsg = "Please enter a valid email.";
+          } else if (resumeInput.files.length === 0) {
+            isValid = false;
+            errorMsg = "Please upload your Resume/CV.";
+          }
+
+          if (!isValid) {
+            feedback.classList.add("alert", "alert-danger");
+            feedback.innerHTML = `<i class="bi bi-exclamation-circle me-2"></i> ${errorMsg}`;
+          } else {
+            feedback.classList.add("alert", "alert-success");
+            feedback.innerHTML = `
+                    <h5 class="alert-heading"><i class="bi bi-check-circle-fill me-2"></i> Application Submitted!</h5>
+                    <p class="mb-0">Thank you, <strong>${name}</strong>. We have received your application for <strong>${jobTitle}</strong>.</p>
+                `;
+            const btn = this.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.innerText = "Applied";
+          }
+        });
+    </script>
+  </body>
+</html>

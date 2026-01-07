@@ -1,0 +1,286 @@
+/* --- CSS VARIABLES & RESET --- */
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --bg-light: #f3f4f6;
+  --glass-bg: rgba(255, 255, 255, 0.95);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-light);
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--text-dark) !important;
+  margin: 0 10px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+.pkt-clock {
+  background: var(--primary-color);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- HERO & CARDS --- */
+.hero-section {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 20%
+  );
+}
+
+.hero-search-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+/* --- JOB CARDS (Specific) --- */
+.job-card {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.job-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+}
+
+.skill-tag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: #e0e7ff;
+  color: var(--secondary-color);
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.job-card:hover .skill-tag {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.salary-text {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* --- FOOTER --- */
+footer {
+  background-color: #111827;
+  color: #d1d5db;
+  padding: 60px 0 20px;
+  margin-top: auto;
+}
+
+footer a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* --- UTILS --- */
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+}
+
+/* --- PROFESSIONAL GREY THEME FOOTER --- */
+footer {
+    background: linear-gradient(180deg, #1f2937 0%, #111827 100%); /* Dark Charcoal Gradient */
+    color: #9ca3af; /* Soft Grey for body text */
+    padding: 80px 0 30px; /* More breathing room for professional look */
+    margin-top: auto;
+    font-family: 'Poppins', sans-serif;
+    border-top: 4px solid var(--primary-color); /* Adds a pop of brand color at top */
+}
+
+/* Headings: Pure White for contrast */
+footer h5 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+/* Small underline for headings (Optional professional touch) */
+footer h5::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: #4b5563;
+    margin-top: 10px;
+}
+
+/* Links */
+footer a {
+    color: #d1d5db; /* Lighter grey than body text */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+footer a:hover {
+    color: #ffffff; /* Turns bright white on hover */
+    padding-left: 8px; /* Subtle slide effect */
+}
+
+/* Social Icons - Glassy Circle Look */
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05); /* Very light grey glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #e5e7eb;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* App Buttons - Outline Grey Style */
+.app-btn {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #4b5563; /* Grey Border */
+    color: #d1d5db;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    text-decoration: none !important;
+    transition: 0.3s;
+}
+
+.app-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+    transform: none;
+    padding-left: 20px; /* Reset movement */
+}
+
+.app-btn i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #ffffff;
+}
+
+/* Newsletter - Dark Inputs */
+.input-group-text {
+    background-color: #374151; /* Medium Grey */
+    border: 1px solid #4b5563;
+    color: white;
+}
+.form-control {
+    background-color: #374151; /* Matches input-group-text */
+    border: 1px solid #4b5563;
+    color: white;
+}
+.form-control:focus {
+    background-color: #374151;
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: none;
+}
+.form-control::placeholder {
+    color: #9ca3af; /* Grey placeholder text */
+}
+
+/* Copyright Line */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Very faint line */
+    margin-top: 60px;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6b7280; /* Darker grey text */
+}
