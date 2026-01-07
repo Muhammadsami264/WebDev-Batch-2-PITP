@@ -160,11 +160,11 @@
             </ul>
             
             <!-- Post Job Button (Hidden on Mobile via CSS) -->
-            <div class="btn-post-job-container">
+            <!-- <div class="btn-post-job-container">
                 <a href="employers.html" class="btn btn-post-job rounded-pill px-4">
                     <i class="bi bi-plus-lg me-2"></i>Post Job
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 </nav>
@@ -219,6 +219,7 @@
                 </div>
             </div>
         </div>
+        <br><br>
 
         <!-- FORM SECTION -->
         <form id="applicationForm" onsubmit="return validateForm(event)">
@@ -230,30 +231,30 @@
                         <h5 class="apply-header"><i class="bi bi-person me-2"></i>Personal Information</h5>
                         
                         <div class="row g-3">
-                            <div class="col-md-6">
+                            <div class="col-md-6" >
                                 <label class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="applicantName" placeholder="e.g. John Doe" required>
+                                <input type="text" style="color: black;" class="form-control" id="applicantName" placeholder="e.g. John Doe" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="applicantEmail" placeholder="john@example.com" required>
+                                <input type="email" class="form-control" style="color: black;"   id="applicantEmail" placeholder="john@example.com" required>
                             </div>
                         </div>
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="applicantPhone" placeholder="+92 300 1234567">
+                                <label class="form-label" style="margin-top: 10px;">Phone Number</label>
+                                <input type="tel" class="form-control" style="color: black;" id="applicantPhone" placeholder="+92 300 1234567">
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Current Location</label>
-                                <input type="text" class="form-control" id="applicantLocation" placeholder="e.g. Karachi, Pakistan">
+                                <label class="form-label" style="margin-top: 10px;">Current Location</label>
+                                <input type="text" class="form-control" style="color: black;" id="applicantLocation" placeholder="e.g. Karachi, Pakistan">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- COLUMN 2: PROFESSIONAL DETAILS -->
-                <div class="col-md-6">
+                <div class="col-md-6" >
                     <div class="section-card">
                         <h5 class="apply-header"><i class="bi bi-briefcase me-2"></i>Professional Details</h5>
                         
@@ -270,12 +271,12 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Expected Salary (PKR)</label>
-                                <input type="number" class="form-control" id="applicantSalary" placeholder="e.g. 150000">
+                                <input type="number" style="color: black;" class="form-control" id="applicantSalary" placeholder="e.g. 150000">
                             </div>
                         </div>
                         <div class="row g-3">
                             <div class="col-md-12">
-                                <label class="form-label">Notice Period</label>
+                                <label class="form-label" style="margin-top: 10px;">Notice Period</label>
                                 <select class="form-select" id="applicantNotice">
                                     <option value="" disabled disabled>Availability</option>
                                     <option value="Immediate">Immediate Joining</option>
