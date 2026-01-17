@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Sketches | Professional Custom Art</title>
+    <meta name="description" content="Custom sketch services, pet portraits, and charcoal drawings with instant online quoting.">
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons (For Social Media) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- OVERRIDING BOOTSTRAP COLORS FOR THEME --- */
+        :root {
+            --primary-color: #2c3e50; /* Charcoal Dark */
+            --accent-color: #c0392b; /* Artistic Red */
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #fdfbf7; /* Off-white Paper */
+            color: #4a4a4a;
+        }
+
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        /* Custom Button Colors */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: #1a252f;
+            border-color: #1a252f;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Navbar tweaks */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            background-color: #fff;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #4a4a4a !important;
+            margin: 0 5px;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+
+        .dropdown-menu {
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .dropdown-item:active { background-color: var(--primary-color); }
+
+        /* Hero Section */
+        .hero-section {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/artstudio2/1920/1080');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            margin-top: 72px;
+        }
+
+        /* Masterpieces Portfolio */
+        .gallery-item {
+            cursor: pointer;
+            overflow: hidden;
+            border: none;
+            position: relative;
+        }
+        .gallery-item img {
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: rgba(44, 62, 80, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+            font-weight: bold;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        /* Shop Cards */
+        .shop-card {
+            transition: transform 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .shop-card:hover { transform: translateY(-5px); }
+
+        /* Portal & FAQ */
+        .portal-container { box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .nav-tabs .nav-link { color: #666; }
+        .nav-tabs .nav-link.active { 
+            color: var(--primary-color); 
+            font-weight: bold; 
+            border-top: 3px solid var(--accent-color); 
+        }
+
+        .faq-question { cursor: pointer; display: flex; justify-content: space-between; font-weight: 600; }
+        .faq-answer { display: none; padding-top: 10px; color: #666; }
+        .faq-item.active .faq-answer { display: block; }
+
+        /* Toast */
+        #toast {
+            visibility: hidden; min-width: 250px; background-color: var(--primary-color);
+            color: #fff; text-align: center; border-radius: 4px; padding: 16px;
+            position: fixed; z-index: 3000; left: 50%; bottom: 30px;
+            transform: translateX(-50%); box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+        /* --- MODAL BLUR & SIZING --- */
+        .modal-xl-custom {
+            max-width: 90vw; /* Occupies 90% of screen width */
+        }
+        .modal-backdrop {
+            backdrop-filter: blur(8px); /* Blurs the background */
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Artisan Sketches</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Shop Art</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#shop">Pre-made Originals</a></li>
+                            <li><a class="dropdown-item" href="#shop">High-Quality Prints</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Commissions</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#commission">Portraits</a></li>
+                            <li><a class="dropdown-item" href="#commission">Pet Portraits</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portal">Client Portal</a></li>
+                    <li class="nav-item ms-lg-3 position-relative">
+                        <a class="nav-link" href="cart.html">
+                            <i class="bi bi-cart3 fs-5"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center justify-content-center text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Art That Speaks To You</h1>
+            <p class="lead mb-4 mx-auto" style="max-width: 600px;">Custom hand-drawn portraits and professional sketches delivered to your door.</p>
+            <div>
+                <a href="#commission" class="btn btn-primary btn-lg px-5">Get a Quote</a>
+                <a href="#portfolio" class="btn btn-outline-light btn-lg px-5 ms-2" style="border-color:white; color:white;">View Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Masterpieces Gallery -->
+    <section id="portfolio" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Masterpieces</h2>
+                <p class="text-muted">Hover over art, then click for advanced details.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Artwork 1 -->
+                <div class="col-md-4">
+                    <div class="card gallery-item h-100" onclick="openGalleryModal(this)"
+                         data-title="Silent Solitude" data-medium="Charcoal on Paper" data-desc="A profound exploration of loneliness using deep charcoal textures. This piece measures 18x24 inches and took over 40 hours to complete." 
+                         data-img="https://picsum.photos/seed/sketch99/600/800">
+                        <img src="https://picsum.photos/seed/sketch99/400/500" class="card-img-top" alt="Art">
+                        <div class="gallery-overlay"><span>View Details</span></div>
+                    </div>
+                </div>
+                <!-- Artwork 2 -->
+                <div class="col-md-4">
+                    <div class="card gallery-item h-100" onclick="openGalleryModal(this)"
+                         data-title="Urban Decay" data-medium="Graphite Pencil" data-desc="Captured during a trip to the old city, this graphite piece highlights the beauty in abandonment. Fine attention to brickwork detail." 
+                         data-img="https://picsum.photos/seed/sketch88/600/800">
+                        <img src="https://picsum.photos/seed/sketch88/400/500" class="card-img-top" alt="Art">
+                        <div class="gallery-overlay"><span>View Details</span></div>
+                    </div>
+                </div>
+                <!-- Artwork 3 -->
+                <div class="col-md-4">
+                    <div class="card gallery-item h-100" onclick="openGalleryModal(this)"
+                         data-title="Ethereal Dreams" data-medium="Ink & Wash" data-desc="A dreamlike representation of a landscape using ink washes. Soft grays meet sharp black lines to create depth." 
+                         data-img="https://picsum.photos/seed/sketch77/600/800">
+                        <img src="https://picsum.photos/seed/sketch77/400/500" class="card-img-top" alt="Art">
+                        <div class="gallery-overlay"><span>View Details</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Section -->
+    <section id="commission" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Start Your Commission</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <div class="card p-4 h-100 shadow-sm border-0">
+                        <form id="quoteForm" onchange="calculateQuote()">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Art Style</label>
+                                    <select id="styleSelect" class="form-select">
+                                        <option value="50">Graphite Pencil - $50 Base</option>
+                                        <option value="80">Charcoal Sketch - $80 Base</option>
+                                        <option value="100">Colored Pencil - $100 Base</option>
+                                        <option value="120">Ink & Wash - $120 Base</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Subjects</label>
+                                    <select id="subjectSelect" class="form-select">
+                                        <option value="1">1 Person / Pet</option>
+                                        <option value="1.5">2 People / Pets (+50%)</option>
+                                        <option value="2">3 People / Pets (+100%)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Size</label>
+                                    <select id="sizeSelect" class="form-select">
+                                        <option value="1">A5 (Small)</option>
+                                        <option value="1.5">A4 (Medium)</option>
+                                        <option value="2">A3 (Large)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Background</label>
+                                    <select id="bgSelect" class="form-select">
+                                        <option value="0">Plain / Gradient</option>
+                                        <option value="20">Simple Outline (+$20)</option>
+                                        <option value="50">Detailed Scenery (+$50)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card p-4 h-100 shadow-sm border-0 text-center bg-dark text-white">
+                        <h3 class="mb-3">Estimated Price</h3>
+                        <div id="finalPrice" style="font-size: 3rem; font-family: 'Playfair Display', serif;">$50.00</div>
+                        <button class="btn btn-light btn-lg mt-4 fw-bold w-100" onclick="showToast('Added to checkout queue!')">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">The Shop</h2>
+                <p class="text-muted">Click "View Details" for advanced info.</p>
+            </div>
+            <!-- Filter Buttons -->
+            <div class="d-flex justify-content-center gap-2 flex-wrap mb-5">
+                <button class="btn btn-outline-secondary active rounded-pill px-4" onclick="filterShop('all', this)">All Items</button>
+                <button class="btn btn-outline-secondary rounded-pill px-4" onclick="filterShop('charcoal', this)">Charcoal</button>
+                <button class="btn btn-outline-secondary rounded-pill px-4" onclick="filterShop('pencil', this)">Pencil</button>
+            </div>
+
+            <div class="row g-4" id="shopGrid">
+                <!-- Product 1 -->
+                <div class="col-md-6 col-lg-3 product-card" data-category="charcoal">
+                    <div class="card shop-card h-100">
+                        <img src="https://picsum.photos/seed/char1/300/300" class="card-img-top" alt="Art">
+                        <div class="card-body text-center">
+                            <small class="text-uppercase text-muted small fw-bold">Charcoal Original</small>
+                            <h5 class="card-title mt-1">Midnight Solitude</h5>
+                            <p class="text-danger fw-bold">$145.00</p>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-sm" onclick="openProductModal(this)" 
+                                    data-title="Midnight Solitude" data-price="$145.00" 
+                                    data-desc="An original charcoal drawing on heavyweight textured paper. Measures 12x16 inches. Signed by the artist. Comes with a certificate of authenticity."
+                                    data-img="https://picsum.photos/seed/char1/600/600">View Details</button>
+                                <button class="btn btn-outline-primary btn-sm" onclick="addToCart()">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="col-md-6 col-lg-3 product-card" data-category="pencil">
+                    <div class="card shop-card h-100">
+                        <img src="https://picsum.photos/seed/pen2/300/300" class="card-img-top" alt="Art">
+                        <div class="card-body text-center">
+                            <small class="text-uppercase text-muted small fw-bold">Graphite</small>
+                            <h5 class="card-title mt-1">Old Man's Wisdom</h5>
+                            <p class="text-danger fw-bold">$85.00</p>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-sm" onclick="openProductModal(this)" 
+                                    data-title="Old Man's Wisdom" data-price="$85.00" 
+                                    data-desc="A hyper-realistic graphite portrait study. Focuses on textures of skin and wrinkles. Suitable for A4 framing."
+                                    data-img="https://picsum.photos/seed/pen2/600/600">View Details</button>
+                                <button class="btn btn-outline-primary btn-sm" onclick="addToCart()">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Product 3 -->
+                 <div class="col-md-6 col-lg-3 product-card" data-category="print">
+                    <div class="card shop-card h-100">
+                        <img src="https://picsum.photos/seed/print3/300/300" class="card-img-top" alt="Art">
+                        <div class="card-body text-center">
+                            <small class="text-uppercase text-muted small fw-bold">Limited Print</small>
+                            <h5 class="card-title mt-1">City Dreams</h5>
+                            <p class="text-danger fw-bold">$40.00</p>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-sm" onclick="openProductModal(this)" 
+                                    data-title="City Dreams" data-price="$40.00" 
+                                    data-desc="High-quality Giclee print on archival matte paper. Edition of 50 only. Size: 8x10 inches."
+                                    data-img="https://picsum.photos/seed/print3/600/600">View Details</button>
+                                <button class="btn btn-outline-primary btn-sm" onclick="addToCart()">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Portal -->
+    <section id="portal" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Client Portal</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="card portal-container border-0">
+                        <ul class="nav nav-tabs nav-fill" id="portalTab" role="tablist">
+                            <li class="nav-item">
+                                <button class="nav-link active" onclick="switchPortalTab('login')">Login</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" onclick="switchPortalTab('signup')">Sign Up (New)</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" onclick="switchPortalTab('dashboard')">My Dashboard</button>
+                            </li>
+                        </ul>
+                        <div class="card-body p-4">
+                            <!-- Login Form -->
+                            <div id="loginForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" placeholder="client@example.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" placeholder="******">
+                                </div>
+                                <button class="btn btn-primary w-100" onclick="switchPortalTab('dashboard')">Login to Portal</button>
+                            </div>
+
+                            <!-- Sign Up Form -->
+                            <div id="signupForm" style="display:none;">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" placeholder="John Doe">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" placeholder="you@example.com">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Create Password</label>
+                                        <input type="password" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Confirm Password</label>
+                                        <input type="password" class="form-control">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" required>
+                                            <label class="form-check-label">I agree to Terms & Conditions</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-success w-100" onclick="showToast('Account created successfully! Please Login.'); switchPortalTab('login')">Create Account</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dashboard (Advanced) -->
+                            <div id="dashboardView" style="display:none;">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h5 class="border-bottom pb-2">Active Projects</h5>
+                                        <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+                                            <div>
+                                                <strong>Project #882 - Dog Portrait</strong><br>
+                                                <small class="text-muted">Started: Oct 10, 2023</small>
+                                            </div>
+                                            <span class="badge bg-success rounded-pill">Completed</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center py-3">
+                                            <div>
+                                                <strong>Project #901 - Family Sketch</strong><br>
+                                                <small class="text-muted">Started: Nov 01, 2023</small>
+                                            </div>
+                                            <span class="badge bg-warning text-dark rounded-pill">In Progress - Drafting</span>
+                                        </div>
+
+                                        <h5 class="border-bottom pb-2 mt-4">Billing History</h5>
+                                        <ul class="list-group list-group-flush small">
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>Order #1022 (Payment)</span>
+                                                <span class="text-success">Paid</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>Deposit #901</span>
+                                                <span class="text-success">Paid</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card bg-light border-0">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-person-circle fs-1 text-muted"></i>
+                                                <h5 class="mt-2">My Profile</h5>
+                                                <p class="small text-muted">John Doe</p>
+                                                <button class="btn btn-sm btn-outline-primary w-100">Edit Profile</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="h4">Artisan Sketches</h3>
+                    <p class="text-secondary">Professional custom art for everyone.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h4">Quick Links</h3>
+                    <ul class="list-unstyled text-secondary">
+                        <li><a href="#portfolio" class="text-secondary text-decoration-none">Gallery</a></li>
+                        <li><a href="#commission" class="text-secondary text-decoration-none">Commission</a></li>
+                        <li><a href="#shop" class="text-secondary text-decoration-none">Shop</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h4">Connect With Us</h3>
+                    <div class="d-flex gap-3 fs-4">
+                        <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-secondary small">
+                &copy; 2023 Artisan Sketches. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast">Notification</div>
+
+    <!-- ================= MODALS ================= -->
+
+    <!-- 1. Shop Product Modal (90% Screen + Blur) -->
+    <div class="modal fade" id="shopModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="shopModalTitle">Product Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <img src="" id="shopModalImg" class="img-fluid rounded shadow" alt="Product Detail">
+                        </div>
+                        <div class="col-md-6 mt-4 mt-md-0">
+                            <h3 class="text-danger fw-bold" id="shopModalPrice">$0.00</h3>
+                            <p class="lead text-muted" id="shopModalDesc">Description goes here...</p>
+                            
+                            <ul class="list-unstyled mt-3">
+                                <li><i class="bi bi-check-circle-fill text-success"></i> Authentic Handmade Art</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> Secure Packaging</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> 7-Day Returns</li>
+                            </ul>
+
+                            <div class="d-grid gap-2 mt-4">
+                                <button class="btn btn-primary btn-lg" onclick="addToCart(); bootstrap.Modal.getInstance(document.getElementById('shopModal')).hide();">Add to Cart</button>
+                                <button class="btn btn-outline-dark" data-bs-dismiss="modal">Continue Shopping</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Gallery Portfolio Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-0">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="galleryModalTitle">Art Title</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <img src="" id="galleryModalImg" class="img-fluid rounded shadow-lg w-100" alt="Masterpiece">
+                        </div>
+                        <div class="col-md-4 d-flex flex-column justify-content-center">
+                            <span class="badge bg-secondary mb-3 align-self-start" id="galleryModalMedium">Medium</span>
+                            <p class="lead" id="galleryModalDesc">Description...</p>
+                            <hr class="border-secondary">
+                            <p class="small text-muted">This piece is part of our private collection and is currently not for sale. Contact us for commission inquiries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Logic Script -->
+    <script>
+        // --- Quote Calculator ---
+        function calculateQuote() {
+            const styleBase = parseFloat(document.getElementById('styleSelect').value);
+            const subjectMult = parseFloat(document.getElementById('subjectSelect').value);
+            const sizeMult = parseFloat(document.getElementById('sizeSelect').value);
+            const bgCost = parseFloat(document.getElementById('bgSelect').value);
+
+            let total = (styleBase * subjectMult * sizeMult) + bgCost;
+            document.getElementById('finalPrice').innerText = '$' + total.toFixed(2);
+        }
+
+        // --- Shop Filter ---
+        function filterShop(category, btnElement) {
+            document.querySelectorAll('#shop .btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            const items = document.querySelectorAll('.product-card');
+            items.forEach(item => {
+                const itemCat = item.getAttribute('data-category');
+                if (category === 'all' || itemCat === category) {
+                    item.parentElement.style.display = 'block';
+                } else {
+                    item.parentElement.style.display = 'none';
+                }
+            });
+        }
+
+        // --- Shopping Cart ---
+        let cartItems = 0;
+        function addToCart() {
+            cartItems++;
+            document.getElementById('cartCount').innerText = cartItems;
+            showToast('Added to cart successfully!');
+        }
+
+        // --- Toast Utility ---
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.innerText = message;
+            toast.className = "show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        // --- Portal Tabs Logic ---
+        function switchPortalTab(tabName) {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const dashboardView = document.getElementById('dashboardView');
+            const tabs = document.querySelectorAll('#portalTab .nav-link');
+
+            tabs.forEach(t => t.classList.remove('active'));
+
+            if (tabName === 'login') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                dashboardView.style.display = 'none';
+                tabs[0].classList.add('active');
+            } else if (tabName === 'signup') {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                dashboardView.style.display = 'none';
+                tabs[1].classList.add('active');
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'none';
+                dashboardView.style.display = 'block';
+                tabs[2].classList.add('active');
+            }
+        }
+
+        // --- Open Shop Modal (Dynamic Data) ---
+        function openProductModal(element) {
+            // Read data from the button's data-attributes
+            const title = element.getAttribute('data-title');
+            const price = element.getAttribute('data-price');
+            const desc = element.getAttribute('data-desc');
+            const img = element.getAttribute('data-img');
+
+            // Populate Modal
+            document.getElementById('shopModalTitle').innerText = title;
+            document.getElementById('shopModalPrice').innerText = price;
+            document.getElementById('shopModalDesc').innerText = desc;
+            document.getElementById('shopModalImg').src = img;
+
+            // Show Modal using Bootstrap JS
+            const myModal = new bootstrap.Modal(document.getElementById('shopModal'));
+            myModal.show();
+        }
+
+        // --- Open Gallery Modal (Dynamic Data) ---
+        function openGalleryModal(element) {
+            const title = element.getAttribute('data-title');
+            const medium = element.getAttribute('data-medium');
+            const desc = element.getAttribute('data-desc');
+            const img = element.getAttribute('data-img');
+
+            document.getElementById('galleryModalTitle').innerText = title;
+            document.getElementById('galleryModalMedium').innerText = medium;
+            document.getElementById('galleryModalDesc').innerText = desc;
+            document.getElementById('galleryModalImg').src = img;
+
+            const myModal = new bootstrap.Modal(document.getElementById('galleryModal'));
+            myModal.show();
+        }
+
+        // Initialize
+        calculateQuote();
+    </script>
+</body>
+</html>
