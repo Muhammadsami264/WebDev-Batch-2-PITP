@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -294,6 +293,23 @@
         color: var(--accent-red);
         border-color: transparent;
       }
+
+      /* Cart Badge */
+      .cart-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background-color: var(--accent-red);
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -325,9 +341,9 @@
               <a class="nav-link" href="#portal">Portal</a>
             </li>
             <li class="nav-item ms-lg-4">
-              <a class="btn btn-white-outline btn-sm" href="cart.html"
-                >CART <i class="bi bi-bag ms-2"></i
-              ></a>
+              <a class="btn btn-white-outline btn-sm position-relative" href="cart.html"
+                >CART <i class="bi bi-bag ms-2"></i><span id="cartBadge" class="cart-badge">0</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -550,7 +566,7 @@
                 </h2>
                 <button
                   class="btn btn-white-outline mt-3"
-                  onclick="showToast('Added to checkout queue!')"
+                  onclick="proceedToCheckout()"
                 >
                   Proceed to Checkout
                 </button>
@@ -594,13 +610,13 @@
           </button>
           <button
             class="btn btn-white-outline rounded-pill px-4"
-            onclick="filterShop('all', this)"
+            onclick="filterShop('pencil', this)"
           >
             Pencil
           </button>
           <button
             class="btn btn-white-outline rounded-pill px-4"
-            onclick="filterShop('all', this)"
+            onclick="filterShop('charcoal', this)"
           >
             Charcoal
           </button>
@@ -628,9 +644,10 @@
                 <h5 class="card-title fw-bold text-white mt-1">
                     Athelete Sketch
                 </h5>
-                <p class="price-text h5 mt-2" id="price1">19.00</p>
+                <p class="price-text h5 mt-2" id="price1">$19.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
+                    style="padding: 20px; margin-top: 29%; "
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Athelete Sketch"
@@ -640,16 +657,15 @@
                   >
                     Details
                   </button>
-                  <button class="btn btn-sm btn-red-fill" onclick="addToCart()">
+                  <!-- <button class="btn btn-sm btn-red-fill" onclick="addToCart(this)">
                     Add to Cart
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Product 2 -->
-
           <div
             class="col-md-6 col-lg-3 product-card"
             data-category="charcoal"
@@ -657,7 +673,8 @@
             data-aos-delay="100"
           >
             <div class="card mono-card h-100">
-              <img style="margin-top: 30%; margin-bottom: 20%; background-color: #000;"
+              <img
+                style="margin-top: 30%; margin-bottom:20%"
                 src="./images/Door Of Khyber.png"
                 class="card-img-top sketch-img"
                 alt="Art"
@@ -672,6 +689,7 @@
                 <p class="price-text h5 mt-2" id="price2">$100.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
+                    style="padding: 20px; margin-top: 15.5%; "
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Battle of Khyber"
@@ -681,19 +699,18 @@
                   >
                     Details
                   </button>
-                  <button class="btn btn-sm btn-red-fill" onclick="addToCart()">
+                  <!-- <button class="btn btn-sm btn-red-fill" onclick="addToCart(this)">
                     Add to Cart
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- product -->
-
+          <!-- Product 3 -->
           <div
             class="col-md-6 col-lg-3 product-card"
-            data-category="charcoal"
+            data-category="pencil"
             data-aos="flip-up"
             data-aos-delay="100"
           >
@@ -710,9 +727,10 @@
                   >Pencil</small
                 >
                 <h5 class="card-title fw-bold text-white mt-1">Ezio Autorie Portrait</h5>
-                <p class="price-text h5 mt-2" id="price2">$35.00</p>
+                <p class="price-text h5 mt-2" id="price3">$35.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
+                    style="padding: 20px; margin-top: 13%; "
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Ezio Autorie Portrait"
@@ -722,19 +740,18 @@
                   >
                     Details
                   </button>
-                  <button class="btn btn-sm btn-red-fill" onclick="addToCart()">
+                  <!-- <button class="btn btn-sm btn-red-fill" onclick="addToCart(this)">
                     Add to Cart
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- product -->
-
+          <!-- Product 4 -->
           <div
             class="col-md-6 col-lg-3 product-card"
-            data-category="charcoal"
+            data-category="pencil"
             data-aos="flip-up"
             data-aos-delay="100"
           >
@@ -751,9 +768,10 @@
                   >Pencil</small
                 >
                 <h5 class="card-title fw-bold text-white mt-1">Girl Sketch</h5>
-                <p class="price-text h5 mt-2" id="price2">$30.99</p>
+                <p class="price-text h5 mt-2" id="price4">$30.99</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
+                    style="padding: 20px; margin-top: 25%; "
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Girl Sketch"
@@ -763,15 +781,15 @@
                   >
                     Details
                   </button>
-                  <button class="btn btn-sm btn-red-fill" onclick="addToCart()">
+                  <!-- <button class="btn btn-sm btn-red-fill" onclick="addToCart(this)">
                     Add to Cart
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- product -->
+          <!-- Product 5 -->
           <div
             class="col-md-6 col-lg-3 product-card"
             data-category="charcoal"
@@ -790,36 +808,38 @@
                   style="font-size: 0.7rem; color: var(--text-grey)"
                   >Pencil</small
                 >
-                <h5 class="card-title fw-bold text-white mt-1">Dark Essence</h5>
-                <p class="price-text h5 mt-2" id="price2">$85.00</p>
+                <h5 class="card-title fw-bold text-white mt-1">blushing face of girl</h5>
+                <p class="price-text h5 mt-2" id="price5">$85.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
+                    style="padding: 20px; margin-top: 15%; "
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
-                    data-title="Dark Essence"
+                    data-title="blushing face of girl"
                     data-price="85"
                     data-desc="Dramatic charcoal portrait. High contrast. 11x14 inches. Fixed with high-quality fixative spray."
-                    data-img="https://picsum.photos/seed/charcoalfaces/600/600"
+                    data-img="./images/girl2.png"
                   >
                     Details
                   </button>
-                  <button class="btn btn-sm btn-red-fill" onclick="addToCart()">
+                  <!-- <button class="btn btn-sm btn-red-fill" onclick="addToCart(this)">
                     Add to Cart
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Product 6: Tools -->
+          <!-- Product 6 -->
           <div
             class="col-md-6 col-lg-3 product-card"
-            data-category="tools"
+            data-category="pencil"
             data-aos="flip-up"
             data-aos-delay="200"
           >
             <div class="card mono-card h-100">
-              <img style="margin-top: 25%; "
+              <img
+                style= "margin-top:20%; margin-bottom: 15%;"
                 src="./images/house.jpg"
                 class="card-img-top sketch-img"
                 alt="Art"
@@ -831,9 +851,10 @@
                   >Pencil</small
                 >
                 <h5 class="card-title fw-bold text-white mt-1">House Sketch</h5>
-                <p class="price-text h5 mt-2" id="price3">$40.00</p>
+                <p class="price-text h5 mt-2" id="price6">$40.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
+                    style="padding: 20px; margin-top: 15%; "
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="House Sketch"
@@ -843,23 +864,24 @@
                   >
                     Details
                   </button>
-                  <button class="btn btn-sm btn-red-fill" onclick="addToCart()">
+                  <!-- <button class="btn btn-sm btn-red-fill" onclick="addToCart(this)">
                     Add to Cart
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- product -->
-           <div
+          <!-- Product 7 -->
+          <div
             class="col-md-6 col-lg-3 product-card"
-            data-category="tools"
+            data-category="pencil"
             data-aos="flip-up"
             data-aos-delay="200"
           >
             <div class="card mono-card h-100">
-              <img style="margin-top: 25%; "
+              <img
+                style="margin-top: 20%; margin-bottom:15%;"
                 src="./images/martydom of hussain.png"
                 class="card-img-top sketch-img"
                 alt="Art"
@@ -870,10 +892,11 @@
                   style="font-size: 0.7rem; color: var(--text-grey)"
                   >Pencil</small
                 >
-                <h5 class="card-title fw-bold text-white mt-1">Martydom of Hussain</h5>
-                <p class="price-text h5 mt-2" id="price3">$40.00</p>
+                <h5 class="card-title fw-bold text-white ">Martydom of Hussain</h5>
+                <p class="price-text h5 mt-2" id="price7">$40.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
+                    style="padding: 20px; margin-top: 5%; "
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Martydom of Hussain"
@@ -883,23 +906,23 @@
                   >
                     Details
                   </button>
-                  <button class="btn btn-sm btn-red-fill" onclick="addToCart()">
+                  <!-- <button class="btn btn-sm btn-red-fill" onclick="addToCart(this)">
                     Add to Cart
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- product -->
-           <div
+          <!-- Product 8 -->
+          <div
             class="col-md-6 col-lg-3 product-card"
-            data-category="tools"
+            data-category="pencil"
             data-aos="flip-up"
             data-aos-delay="200"
           >
             <div class="card mono-card h-100">
-              <img style="margin-top: 25%; "
+              <img
                 src="./images/women.png"
                 class="card-img-top sketch-img"
                 alt="Art"
@@ -911,9 +934,10 @@
                   >Pencil</small
                 >
                 <h5 class="card-title fw-bold text-white mt-1">Modesty</h5>
-                <p class="price-text h5 mt-2" id="price3">$40.00</p>
+                <p class="price-text h5 mt-2" id="price8">$40.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
+                    style="padding: 20px; margin-top:25%;"
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Modesty"
@@ -923,14 +947,13 @@
                   >
                     Details
                   </button>
-                  <button class="btn btn-sm btn-red-fill" onclick="addToCart()">
+                  <!-- <button class="btn btn-sm btn-red-fill" onclick="addToCart(this)">
                     Add to Cart
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </section>
@@ -1279,7 +1302,7 @@
                 <div class="d-grid gap-2 mt-4">
                   <button
                     class="btn btn-red-fill"
-                    onclick="addToCart(); bootstrap.Modal.getInstance(document.getElementById('shopModal')).hide();"
+                    onclick="addToCartFromModal(); bootstrap.Modal.getInstance(document.getElementById('shopModal')).hide();"
                   >
                     Add to Cart
                   </button>
@@ -1381,7 +1404,7 @@
       }
 
       function updateShopPrices(code, symbol) {
-        const prices = { price1: 145, price2: 85, price3: 40 };
+        const prices = { price1: 19, price2: 100, price3: 35, price4: 30.99, price5: 85, price6: 40, price7: 40, price8: 40 };
         for (let [id, usdVal] of Object.entries(prices)) {
           const converted = usdVal * rates[code];
           document.getElementById(id).innerText =
@@ -1404,11 +1427,92 @@
         });
       }
 
-      // --- Cart ---
-      let cartCount = 0;
-      function addToCart() {
-        cartCount++;
+      // --- Cart Functions ---
+      let currentModalProduct = null;
+
+      function addToCart(button) {
+        const card = button.closest('.card');
+        const title = card.querySelector('.card-title').textContent;
+        const price = parseFloat(card.querySelector('.price-text').textContent.replace(/[^0-9.]/g, ''));
+        const img = card.querySelector('.sketch-img').src;
+        const desc = card.querySelector('.text-secondary.small').textContent;
+        
+        const product = {
+          title: title,
+          price: price,
+          img: img,
+          desc: desc,
+          qty: 1
+        };
+
+        let cart = [];
+        try {
+          const storedData = localStorage.getItem('artisanCart');
+          if (storedData) {
+            cart = JSON.parse(storedData);
+          }
+        } catch (e) {
+          console.error("Error reading cart:", e);
+        }
+
+        // Check if product already exists in cart
+        const existingIndex = cart.findIndex(item => item.title === title);
+        if (existingIndex > -1) {
+          cart[existingIndex].qty += 1;
+        } else {
+          cart.push(product);
+        }
+
+        localStorage.setItem('artisanCart', JSON.stringify(cart));
+        updateCartBadge();
         showToast("Added to cart successfully!");
+      }
+
+      function addToCartFromModal() {
+        if (currentModalProduct) {
+          let cart = [];
+          try {
+            const storedData = localStorage.getItem('artisanCart');
+            if (storedData) {
+              cart = JSON.parse(storedData);
+            }
+          } catch (e) {
+            console.error("Error reading cart:", e);
+          }
+
+          const existingIndex = cart.findIndex(item => item.title === currentModalProduct.title);
+          if (existingIndex > -1) {
+            cart[existingIndex].qty += 1;
+          } else {
+            cart.push(currentModalProduct);
+          }
+
+          localStorage.setItem('artisanCart', JSON.stringify(cart));
+          updateCartBadge();
+          showToast("Added to cart successfully!");
+        }
+      }
+
+      function updateCartBadge() {
+        let cart = [];
+        try {
+          const storedData = localStorage.getItem('artisanCart');
+          if (storedData) {
+            cart = JSON.parse(storedData);
+          }
+        } catch (e) {
+          console.error("Error reading cart:", e);
+        }
+
+        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        const badge = document.getElementById('cartBadge');
+        
+        if (totalItems > 0) {
+          badge.style.display = 'flex';
+          badge.textContent = totalItems;
+        } else {
+          badge.style.display = 'none';
+        }
       }
 
       // --- Toast ---
@@ -1456,6 +1560,14 @@
         const img = element.getAttribute("data-img");
         const currencyCode = document.getElementById("currencySelect").value;
 
+        currentModalProduct = {
+          title: title,
+          price: parseFloat(price),
+          img: img,
+          desc: desc,
+          qty: 1
+        };
+
         document.getElementById("shopModalTitle").innerText = title;
         document.getElementById("shopModalDesc").innerText = desc;
         document.getElementById("shopModalImg").src = img;
@@ -1492,8 +1604,32 @@
         myModal.show();
       }
 
+      // --- Proceed to Checkout ---
+      function proceedToCheckout() {
+        let cart = [];
+        try {
+          const storedData = localStorage.getItem('artisanCart');
+          if (storedData) {
+            cart = JSON.parse(storedData);
+          }
+        } catch (e) {
+          console.error("Error reading cart:", e);
+        }
+
+        if (cart.length === 0) {
+          showToast("Your cart is empty! Add some items first.");
+          return;
+        }
+
+        // Redirect to cart page
+        window.location.href = "cart.html";
+      }
+
       // Initialize
-      calculateQuote();
+      document.addEventListener('DOMContentLoaded', function() {
+        calculateQuote();
+        updateCartBadge();
+      });
     </script>
   </body>
 </html>
