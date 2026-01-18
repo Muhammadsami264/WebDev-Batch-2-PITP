@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -114,7 +114,8 @@
       /* Hero Section */
       .hero-section {
         height: 100vh;
-        background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.9)),
+        background:
+          linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.9)),
           url("https://picsum.photos/seed/inkstudio/1920/1080");
         background-size: cover;
         background-attachment: fixed;
@@ -177,7 +178,9 @@
       /* Image Filter (B&W Sketch Effect) */
       .sketch-img {
         filter: grayscale(100%) contrast(130%) brightness(110%);
-        transition: filter 0.5s ease, transform 0.5s ease;
+        transition:
+          filter 0.5s ease,
+          transform 0.5s ease;
       }
       .mono-card:hover .sketch-img {
         filter: grayscale(0%) contrast(100%); /* Reveal hints of original color on hover */
@@ -249,7 +252,9 @@
       }
       #toast.show {
         visibility: visible;
-        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation:
+          fadein 0.5s,
+          fadeout 0.5s 2.5s;
       }
       @keyframes fadein {
         from {
@@ -317,7 +322,8 @@
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#" style="font-size: 1.5rem"
-          ><span style="color: #a0a0a0;">Sam'S </span><span style="color: var(--accent-red)">SKETCHz</span></a
+          ><span style="color: #a0a0a0">Sam'S </span
+          ><span style="color: var(--accent-red)">SKETCHz</span></a
         >
         <button
           class="navbar-toggler"
@@ -341,8 +347,11 @@
               <a class="nav-link" href="#portal">Portal</a>
             </li>
             <li class="nav-item ms-lg-4">
-              <a class="btn btn-white-outline btn-sm position-relative" href="cart.html"
-                >CART <i class="bi bi-bag ms-2"></i><span id="cartBadge" class="cart-badge">0</span>
+              <a
+                class="btn btn-white-outline btn-sm position-relative"
+                href="cart.html"
+                >CART <i class="bi bi-bag ms-2"></i
+                ><span id="cartBadge" class="cart-badge">0</span>
               </a>
             </li>
           </ul>
@@ -642,12 +651,12 @@
                   >Pencil</small
                 >
                 <h5 class="card-title fw-bold text-white mt-1">
-                    Athelete Sketch
+                  Athelete Sketch
                 </h5>
                 <p class="price-text h5 mt-2" id="price1">$19.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
-                    style="padding: 20px; margin-top: 29%; "
+                    style="padding: 20px; margin-top: 29%"
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Athelete Sketch"
@@ -674,7 +683,7 @@
           >
             <div class="card mono-card h-100">
               <img
-                style="margin-top: 30%; margin-bottom:20%"
+                style="margin-top: 30%; margin-bottom: 20%"
                 src="./images/Door Of Khyber.png"
                 class="card-img-top sketch-img"
                 alt="Art"
@@ -685,11 +694,13 @@
                   style="font-size: 0.7rem; color: var(--text-grey)"
                   >Pencil + Charcoal</small
                 >
-                <h5 class="card-title fw-bold text-white mt-1">Battle of Khyber</h5>
+                <h5 class="card-title fw-bold text-white mt-1">
+                  Battle of Khyber
+                </h5>
                 <p class="price-text h5 mt-2" id="price2">$100.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
-                    style="padding: 20px; margin-top: 15.5%; "
+                    style="padding: 20px; margin-top: 15.5%"
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Battle of Khyber"
@@ -726,11 +737,13 @@
                   style="font-size: 0.7rem; color: var(--text-grey)"
                   >Pencil</small
                 >
-                <h5 class="card-title fw-bold text-white mt-1">Ezio Autorie Portrait</h5>
+                <h5 class="card-title fw-bold text-white mt-1">
+                  Ezio Autorie Portrait
+                </h5>
                 <p class="price-text h5 mt-2" id="price3">$35.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
-                    style="padding: 20px; margin-top: 13%; "
+                    style="padding: 20px; margin-top: 13%"
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Ezio Autorie Portrait"
@@ -771,7 +784,7 @@
                 <p class="price-text h5 mt-2" id="price4">$30.99</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
-                    style="padding: 20px; margin-top: 25%; "
+                    style="padding: 20px; margin-top: 25%"
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Girl Sketch"
@@ -808,11 +821,13 @@
                   style="font-size: 0.7rem; color: var(--text-grey)"
                   >Pencil</small
                 >
-                <h5 class="card-title fw-bold text-white mt-1">blushing face of girl</h5>
+                <h5 class="card-title fw-bold text-white mt-1">
+                  blushing face of girl
+                </h5>
                 <p class="price-text h5 mt-2" id="price5">$85.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
-                    style="padding: 20px; margin-top: 15%; "
+                    style="padding: 20px; margin-top: 15%"
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="blushing face of girl"
@@ -839,7 +854,7 @@
           >
             <div class="card mono-card h-100">
               <img
-                style= "margin-top:20%; margin-bottom: 15%;"
+                style="margin-top: 20%; margin-bottom: 15%"
                 src="./images/house.jpg"
                 class="card-img-top sketch-img"
                 alt="Art"
@@ -854,7 +869,7 @@
                 <p class="price-text h5 mt-2" id="price6">$40.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
-                    style="padding: 20px; margin-top: 15%; "
+                    style="padding: 20px; margin-top: 15%"
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="House Sketch"
@@ -881,7 +896,7 @@
           >
             <div class="card mono-card h-100">
               <img
-                style="margin-top: 20%; margin-bottom:15%;"
+                style="margin-top: 20%; margin-bottom: 15%"
                 src="./images/martydom of hussain.png"
                 class="card-img-top sketch-img"
                 alt="Art"
@@ -892,11 +907,13 @@
                   style="font-size: 0.7rem; color: var(--text-grey)"
                   >Pencil</small
                 >
-                <h5 class="card-title fw-bold text-white ">Martydom of Hussain</h5>
+                <h5 class="card-title fw-bold text-white">
+                  Martydom of Hussain
+                </h5>
                 <p class="price-text h5 mt-2" id="price7">$40.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
-                    style="padding: 20px; margin-top: 5%; "
+                    style="padding: 20px; margin-top: 5%"
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Martydom of Hussain"
@@ -937,7 +954,7 @@
                 <p class="price-text h5 mt-2" id="price8">$40.00</p>
                 <div class="d-grid gap-2 mt-3">
                   <button
-                    style="padding: 20px; margin-top:25%;"
+                    style="padding: 20px; margin-top: 25%"
                     class="btn btn-sm btn-white-outline"
                     onclick="openProductModal(this)"
                     data-title="Modesty"
@@ -954,6 +971,48 @@
               </div>
             </div>
           </div>
+
+          <!-- Product 9 -->
+          <div
+            class="col-md-6 col-lg-3 product-card"
+            data-category="pencil"
+            data-aos="flip-up"
+            data-aos-delay="200"
+          >
+            <div class="card mono-card h-100">
+              <img
+                src="./images/hijab.png"
+                class="card-img-top sketch-img"
+                alt="Art"
+              />
+              <div class="card-body text-center p-4">
+                <small
+                  class="text-uppercase fw-bold"
+                  style="font-size: 0.7rem; color: var(--text-grey)"
+                  >Pencil</small
+                >
+                <h5 class="card-title fw-bold text-white mt-1">Girl covered face</h5>
+                <p class="price-text h5 mt-2" id="price8">$55.00</p>
+                <div class="d-grid gap-2 mt-3">
+                  <button
+                    style="padding: 20px; margin-top: 25%"
+                    class="btn btn-sm btn-white-outline"
+                    onclick="openProductModal(this)"
+                    data-title="Girl covered face"
+                    data-price="55"
+                    data-desc="Girl covered face with hijab."
+                    data-img="./images/hijab.png"
+                  >
+                    Details
+                  </button>
+                  <!-- <button class="btn btn-sm btn-red-fill" onclick="addToCart(this)">
+                    Add to Cart
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1076,7 +1135,12 @@
                     <div class="col-12 mt-4">
                       <button
                         class="btn btn-red-fill w-100"
-                        onclick="showToast('Account created successfully! Please Login.'); switchPortalTab('login')"
+                        onclick="
+                          showToast(
+                            'Account created successfully! Please Login.',
+                          );
+                          switchPortalTab('login');
+                        "
                       >
                         Create Account
                       </button>
@@ -1161,7 +1225,7 @@
                           style="color: var(--text-grey)"
                         ></i>
                         <h5 class="text-white mb-2">Profile</h5>
-                        <p class="small text-secondary mb-3">John Doe</p>
+                        <p class="small text-secondary mb-3">Shafqat</p>
                         <button class="btn btn-sm btn-white-outline w-100">
                           Edit Details
                         </button>
@@ -1182,7 +1246,7 @@
         <div class="row g-4">
           <div class="col-md-4">
             <h4 class="h4 text-white">
-              ARTISAN <span style="color: var(--accent-red)">SKETCHES</span>
+              Sam's <span style="color: var(--accent-red)">SKETCHEZ</span>
             </h4>
             <p class="text-secondary mt-3">
               Bringing the world into monochrome focus. We specialize in
@@ -1228,7 +1292,7 @@
         </div>
         <hr class="border-secondary my-4" />
         <div class="text-center text-secondary small">
-          &copy; 2023 Artisan Sketches. All Rights Reserved.
+          &copy; 2025 Sam's Sketchz. All Rights Reserved.
         </div>
       </div>
     </footer>
@@ -1302,7 +1366,12 @@
                 <div class="d-grid gap-2 mt-4">
                   <button
                     class="btn btn-red-fill"
-                    onclick="addToCartFromModal(); bootstrap.Modal.getInstance(document.getElementById('shopModal')).hide();"
+                    onclick="
+                      addToCartFromModal();
+                      bootstrap.Modal.getInstance(
+                        document.getElementById('shopModal'),
+                      ).hide();
+                    "
                   >
                     Add to Cart
                   </button>
@@ -1377,13 +1446,13 @@
 
       function calculateQuote() {
         const styleBase = parseFloat(
-          document.getElementById("styleSelect").value
+          document.getElementById("styleSelect").value,
         );
         const subjectMult = parseFloat(
-          document.getElementById("subjectSelect").value
+          document.getElementById("subjectSelect").value,
         );
         const sizeMult = parseFloat(
-          document.getElementById("sizeSelect").value
+          document.getElementById("sizeSelect").value,
         );
         const bgCost = parseFloat(document.getElementById("bgSelect").value);
         const currencyCode = document.getElementById("currencySelect").value;
@@ -1404,7 +1473,17 @@
       }
 
       function updateShopPrices(code, symbol) {
-        const prices = { price1: 19, price2: 100, price3: 35, price4: 30.99, price5: 85, price6: 40, price7: 40, price8: 40 };
+        const prices = {
+          price1: 19,
+          price2: 100,
+          price3: 35,
+          price4: 30.99,
+          price5: 85,
+          price6: 40,
+          price7: 40,
+          price8: 40,
+          price9: 55,
+        };
         for (let [id, usdVal] of Object.entries(prices)) {
           const converted = usdVal * rates[code];
           document.getElementById(id).innerText =
@@ -1431,23 +1510,25 @@
       let currentModalProduct = null;
 
       function addToCart(button) {
-        const card = button.closest('.card');
-        const title = card.querySelector('.card-title').textContent;
-        const price = parseFloat(card.querySelector('.price-text').textContent.replace(/[^0-9.]/g, ''));
-        const img = card.querySelector('.sketch-img').src;
-        const desc = card.querySelector('.text-secondary.small').textContent;
-        
+        const card = button.closest(".card");
+        const title = card.querySelector(".card-title").textContent;
+        const price = parseFloat(
+          card.querySelector(".price-text").textContent.replace(/[^0-9.]/g, ""),
+        );
+        const img = card.querySelector(".sketch-img").src;
+        const desc = card.querySelector(".text-secondary.small").textContent;
+
         const product = {
           title: title,
           price: price,
           img: img,
           desc: desc,
-          qty: 1
+          qty: 1,
         };
 
         let cart = [];
         try {
-          const storedData = localStorage.getItem('artisanCart');
+          const storedData = localStorage.getItem("artisanCart");
           if (storedData) {
             cart = JSON.parse(storedData);
           }
@@ -1456,14 +1537,14 @@
         }
 
         // Check if product already exists in cart
-        const existingIndex = cart.findIndex(item => item.title === title);
+        const existingIndex = cart.findIndex((item) => item.title === title);
         if (existingIndex > -1) {
           cart[existingIndex].qty += 1;
         } else {
           cart.push(product);
         }
 
-        localStorage.setItem('artisanCart', JSON.stringify(cart));
+        localStorage.setItem("artisanCart", JSON.stringify(cart));
         updateCartBadge();
         showToast("Added to cart successfully!");
       }
@@ -1472,7 +1553,7 @@
         if (currentModalProduct) {
           let cart = [];
           try {
-            const storedData = localStorage.getItem('artisanCart');
+            const storedData = localStorage.getItem("artisanCart");
             if (storedData) {
               cart = JSON.parse(storedData);
             }
@@ -1480,14 +1561,16 @@
             console.error("Error reading cart:", e);
           }
 
-          const existingIndex = cart.findIndex(item => item.title === currentModalProduct.title);
+          const existingIndex = cart.findIndex(
+            (item) => item.title === currentModalProduct.title,
+          );
           if (existingIndex > -1) {
             cart[existingIndex].qty += 1;
           } else {
             cart.push(currentModalProduct);
           }
 
-          localStorage.setItem('artisanCart', JSON.stringify(cart));
+          localStorage.setItem("artisanCart", JSON.stringify(cart));
           updateCartBadge();
           showToast("Added to cart successfully!");
         }
@@ -1496,7 +1579,7 @@
       function updateCartBadge() {
         let cart = [];
         try {
-          const storedData = localStorage.getItem('artisanCart');
+          const storedData = localStorage.getItem("artisanCart");
           if (storedData) {
             cart = JSON.parse(storedData);
           }
@@ -1505,13 +1588,13 @@
         }
 
         const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-        const badge = document.getElementById('cartBadge');
-        
+        const badge = document.getElementById("cartBadge");
+
         if (totalItems > 0) {
-          badge.style.display = 'flex';
+          badge.style.display = "flex";
           badge.textContent = totalItems;
         } else {
-          badge.style.display = 'none';
+          badge.style.display = "none";
         }
       }
 
@@ -1565,7 +1648,7 @@
           price: parseFloat(price),
           img: img,
           desc: desc,
-          qty: 1
+          qty: 1,
         };
 
         document.getElementById("shopModalTitle").innerText = title;
@@ -1581,7 +1664,7 @@
           });
 
         const myModal = new bootstrap.Modal(
-          document.getElementById("shopModal")
+          document.getElementById("shopModal"),
         );
         myModal.show();
       }
@@ -1599,7 +1682,7 @@
         document.getElementById("galleryModalImg").src = img;
 
         const myModal = new bootstrap.Modal(
-          document.getElementById("galleryModal")
+          document.getElementById("galleryModal"),
         );
         myModal.show();
       }
@@ -1608,7 +1691,7 @@
       function proceedToCheckout() {
         let cart = [];
         try {
-          const storedData = localStorage.getItem('artisanCart');
+          const storedData = localStorage.getItem("artisanCart");
           if (storedData) {
             cart = JSON.parse(storedData);
           }
@@ -1626,7 +1709,7 @@
       }
 
       // Initialize
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         calculateQuote();
         updateCartBadge();
       });
